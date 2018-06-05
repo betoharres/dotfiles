@@ -82,9 +82,6 @@ set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
 
-" Disable new line with comment (if the current line is a comment)
-set formatoptions-=ro
-
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
@@ -99,6 +96,10 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-i': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+" tComment
+" Disable new line with comment (if the current line is a comment)
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Leader
 let mapleader = "\<SPACE>"
