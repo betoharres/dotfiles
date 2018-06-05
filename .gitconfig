@@ -6,6 +6,8 @@
 [core]
   editor = vim
 [alias]
+  # A #########
+  a = add
   # B #########
   b   = branch
   # C #########
@@ -17,6 +19,8 @@
   co  = checkout
   # D #########
   d   = diff
+  # L #########
+  l   = log
   # M #########
   m   = merge
   # P #########
