@@ -1,0 +1,35 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+  name = Alberto Rocha
+  email = betoharres@gmailcom
+[core]
+  editor = vim
+[alias]
+  # B #########
+  b   = branch
+  # C #########
+  c   = commit
+  cm  = commit -m
+  ca  = commit --amend
+  cl  = clone
+  cld = clone --depth 1
+  co  = checkout
+  # D #########
+  d   = diff
+  # M #########
+  m   = merge
+  # P #########
+  p   = push
+  pf  = push -f
+  pu  = pull
+  puu = pull upstream
+  puo = pull origin
+  # R #########
+  reh = reset --hard
+  res = reset --soft
+  # S #########
+  s   = status
+  st  = stash
+  sta = stash apply
+  stl = stash list
