@@ -25,19 +25,6 @@ function youtube-mp3() {
   youtube-dl --extract-audio --audio-format mp3 $1;
 }
 
-# hit CTRL + z to go to background and foreground
-fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line
-  else
-    zle push-input
-    zle clear-screen
-  fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 
@@ -74,3 +61,28 @@ bindkey '^e' end-of-line
 
 # fzf (this needs to be after vi-mode to avoid being overwritten)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# hit CTRL + z to go to background and foreground
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+# No arguments: `git status`
+# With arguments: acts like `git`
+g() {
+  if [[ $# -gt 0 ]]; then
+    git "$@"
+  else
+    git status
+  fi
+}
+
+
