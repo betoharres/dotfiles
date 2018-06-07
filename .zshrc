@@ -93,8 +93,8 @@ autoload -U colors && colors # Enable colors in prompt
 
 # Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_SYMBOL="%{$fg[blue]%}±"
-GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$reset_color%}"
-GIT_PROMPT_SUFFIX="%{$fg[green]%}]%{$reset_color%}"
+GIT_PROMPT_PREFIX=""
+GIT_PROMPT_SUFFIX="  "
 GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"
 GIT_PROMPT_BEHIND="%{$fg[cyan]%}BNUM%{$reset_color%}"
 GIT_PROMPT_MERGING="%{$fg[magenta]%}⚡︎%{$reset_color%}"
@@ -149,7 +149,7 @@ parse_git_state() {
 # If inside a Git repository, print its branch and state
 git_prompt_string() {
   local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo "$GIT_PROMPT_SYMBOL$(parse_git_state)$GIT_PROMPT_PREFIX%{$fg[gray]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX"
+  [ -n "$git_where" ] && echo "$(parse_git_state)%{$fg[gray]%}${git_where#(refs/heads/|tags/)}"
 }
 
 # Set the right-hand prompt
