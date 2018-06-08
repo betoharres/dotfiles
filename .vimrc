@@ -25,7 +25,6 @@ colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
 
 set t_Co=256
-set clipboard=unnamed
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
