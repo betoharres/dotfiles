@@ -18,11 +18,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'godlygeek/tabular'
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
   Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 syntax on
 colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
 
 set t_Co=256
 set backspace=2   " Backspace deletes like most programs in insert mode
@@ -83,6 +83,15 @@ set diffopt+=vertical
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
+
+" air-line
+let g:airline_theme='base16'
+let g:airline_powerline_fonts = 1
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let airline#extensions#tabline#tabs_label = ''
+let airline#extensions#tabline#show_splits = 0
 
 " NERDTree
 let g:nerdtree_tabs_open_on_console_startup = 1
