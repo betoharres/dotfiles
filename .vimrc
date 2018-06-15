@@ -87,7 +87,7 @@ set diffopt+=vertical
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
-" air-line
+" airline
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
 
@@ -181,6 +181,8 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " fzf git
 nmap <leader>C :Commits<cr>
 nmap <leader>/ :Lines<cr>
+" Fzf + the_silver_searcher
+nmap <leader>a :Ag<cr>
 
 " fzf cmds
 nmap <leader>c :Commands<cr>
