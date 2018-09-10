@@ -22,7 +22,7 @@ function gamend() {git commit --amend -m "$*";}
 function gcp() {git add -A && git commit -m "$*" && git push;}
 function opendiff () { vim -p $(git status -s | awk '{print $2}') }
 function youtube-mp3() {
-  youtube-dl --extract-audio --audio-format mp3 $1;
+  youtube-dl --extract-audio --audio-format mp3 $@;
 }
 
 LC_CTYPE=en_US.UTF-8
