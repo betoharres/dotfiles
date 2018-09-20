@@ -22,6 +22,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
   Plug 'rhysd/clever-f.vim'
+  Plug 'mattn/emmet-vim'
+  Plug 'SirVer/ultisnips'
+  Plug 'epilande/vim-react-snippets'
 call plug#end()
 
 syntax on
@@ -101,6 +104,19 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 let NERDTreeQuitOnOpen = 1
 let g:nerdtree_tabs_smart_startup_focus = 1
 let NERDTreeShowHidden = 1
+
+" UtilSnips
+let g:UltiSnipsExpandTrigger="<C-p>"
+let g:UltiSnipsJumpForwardTrigger="<C-m>"
+let g:UltiSnipsJumpBackwardTrigger="<C-g>"
+
+" Emmet
+let g:user_emmet_leader_key='<C-e>'
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
 "Fzf key customization
 let g:fzf_action = {
