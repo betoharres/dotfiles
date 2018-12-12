@@ -35,6 +35,9 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:/Users/albertohrocha/.rbenv/shims
 
+export LDFLAGS="-L/usr/local/opt/readline/lib"
+export CPPFLAGS="-I/usr/local/opt/readline/include"
+
 eval "$(rbenv init -)"
 ##############################################################################
 # vi-mode
