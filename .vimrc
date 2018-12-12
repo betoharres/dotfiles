@@ -124,6 +124,8 @@ let g:fzf_action = {
   \ 'ctrl-i': 'split',
   \ 'ctrl-v': 'vsplit' }
 
+let g:fzf_history_dir = '~/.fzf-history'
+
 " tComment
 " Disable new line with comment (if the current line is a comment)
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
