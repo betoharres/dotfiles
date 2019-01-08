@@ -24,7 +24,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'rhysd/clever-f.vim'
   Plug 'mattn/emmet-vim'
   Plug 'SirVer/ultisnips'
-  Plug 'epilande/vim-react-snippets'
+  Plug 'betoharres/vim-react-es6-snippets'
 call plug#end()
 
 syntax on
