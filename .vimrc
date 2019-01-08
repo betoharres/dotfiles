@@ -87,6 +87,9 @@ set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
 
+" Toggle identation in INSERT mode
+set pastetoggle=<F2>
+
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
@@ -198,6 +201,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 
 " fzf git
 nmap <leader>C :Commits<cr>
+nmap <leader>b :Buffers<cr>
 nmap <leader>/ :Lines<cr>
 " Fzf + the_silver_searcher
 nmap <leader>a :Ag<cr>
