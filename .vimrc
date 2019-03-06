@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/emmet-vim'
   Plug 'SirVer/ultisnips'
   Plug 'betoharres/vim-react-es6-snippets'
+  Plug 'w0rp/ale'
 call plug#end()
 
 syntax on
@@ -120,6 +121,14 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
+
+" Ale
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let b:ale_linters = ['eslint']
+let g:airline#extensions#ale#enabled = 1
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 
 "Fzf key customization
 let g:fzf_action = {
