@@ -162,6 +162,10 @@ nmap <Leader>rh <Plug>GitGutterRevertHunk
 nmap m <Plug>(easymotion-prefix)
 nmap <leader>f <Plug>(easymotion-prefix)s
 
+" Ale
+nmap <leader>d :ALENext<CR>
+nmap <leader>u :ALEPrevious<CR>
+
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 
