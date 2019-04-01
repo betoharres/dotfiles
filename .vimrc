@@ -268,3 +268,7 @@ function! InsertTabWrapper()
     endif
 endfunction
 inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
+
+if filereadable(".vimrc.local")
+    source .vimrc.local
+end
