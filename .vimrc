@@ -241,7 +241,7 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <Leader>n :NERDTreeFind<CR>
 
 " Open fuzzy finder files(faster than ctrlP)
-nmap <leader>j :GFiles<CR>
+nmap <leader>j :GFiles --others --exclude-standard --cached<CR>
 
 " Remove trailing whitespace
 function! StripWhitespace()
