@@ -127,6 +127,8 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let b:ale_linters = ['eslint']
 let g:airline#extensions#ale#enabled = 1
+let g:ale_set_highlights = 0
+let g:ale_sign_column_always = 1
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 
