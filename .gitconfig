@@ -37,3 +37,7 @@
   st  = stash
   sta = stash apply
   stl = stash list
+[merge]
+    tool          = vimdiff
+    conflictstyle = diff3
+    prompt        = false
