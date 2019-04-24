@@ -232,6 +232,7 @@ nnoremap <left> <C-w>>
 
 " Tab navigation
 nmap <Leader><Tab> :tabnew<CR>
+nmap <Leader>i :tabnew<CR>
 nmap <S-Tab> :tabprevious<CR>
 nmap <Tab>  :tabnext<CR>
 
