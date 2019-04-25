@@ -234,8 +234,8 @@ nmap <leader>c :Commands<cr>
 " Move through panes
 nnoremap <up> <C-w>-
 nnoremap <down> <C-w>+
-nnoremap <right> <C-w><
-nnoremap <left> <C-w>>
+nnoremap <left> <C-w><
+nnoremap <right> <C-w>>
 
 " Tab navigation
 nmap <Leader><Tab> :tabnew<CR>
