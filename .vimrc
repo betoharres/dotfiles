@@ -143,6 +143,11 @@ let g:fzf_action = {
 
 let g:fzf_history_dir = '~/.fzf-history'
 
+" gitgutter
+set signcolumn=yes
+set updatetime=100
+let g:gitgutter_max_signs = 100
+
 " tComment
 " Disable new line with comment (if the current line is a comment)
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
