@@ -192,10 +192,10 @@ nmap <Leader>p "+P
 " Life saver
 nnore ; :
 vnore ; :
-no L $
-vno L $h
-no H _
-nnoremap V _v$h
+" no L $
+" vno L $h
+" no H _
+nnoremap V vV
 
 " Centering after searching word
 nmap n nzz
