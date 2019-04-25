@@ -26,7 +26,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'betoharres/vim-react-es6-snippets'
   Plug 'w0rp/ale'
   Plug 'Yggdroot/indentLine'
-  Plug 'tpope/vim-characterize'
   Plug 'tpope/vim-abolish'
   Plug 'tommcdo/vim-lion'
 call plug#end()
