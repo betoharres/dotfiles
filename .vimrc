@@ -23,7 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'rhysd/clever-f.vim'
   Plug 'mattn/emmet-vim'
   Plug 'SirVer/ultisnips'
-  Plug 'betoharres/vim-react-es6-snippets'
+  Plug 'betoharres/vim-react-ultiSnips'
   Plug 'w0rp/ale'
   Plug 'Yggdroot/indentLine'
   Plug 'tpope/vim-abolish'
