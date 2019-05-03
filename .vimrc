@@ -49,22 +49,6 @@ set autowrite     " Automatically :write before running commands
 set cursorline
 highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 
-augroup vimrcEx
-  autocmd!
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it for commit messages, when the position is invalid, or when
-  " inside an event handler (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-  augroup END
-
-" When the type of shell script is /bin/sh, assume a POSIX-compatible
-" shell for syntax highlighting purposes.
-let g:is_posix = 1
-
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
@@ -277,6 +261,20 @@ function! InsertTabWrapper()
     endif
 endfunction
 inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
+
+augroup vimrcEx
+  autocmd!
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+  augroup END
+" When the type of shell script is /bin/sh, assume a POSIX-compatible
+" shell for syntax highlighting purposes.
+let g:is_posix = 1
 
 if filereadable(expand("~/code/dotfiles/.vimrc.local"))
     source ~/code/dotfiles/.vimrc.local
