@@ -28,6 +28,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Yggdroot/indentLine'
   Plug 'tpope/vim-abolish'
   Plug 'tommcdo/vim-lion'
+  Plug 'jeffkreeftmeijer/vim-numbertoggle'
 call plug#end()
 
 syntax on
@@ -81,7 +82,7 @@ set textwidth=80
 set colorcolumn=+1
 
 " Numbers
-set number
+set number relativenumber
 set numberwidth=5
 
 " Autocomplete with dictionary words when spell check is on
