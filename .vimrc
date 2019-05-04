@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-abolish'
   Plug 'tommcdo/vim-lion'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
+  Plug 'matze/vim-move'
 call plug#end()
 
 syntax on
@@ -138,6 +139,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Leader
 let mapleader = "\<SPACE>"
+
+" vim-move
+let g:move_key_modifier = 'C'
 
 "Fugitive
 nmap <leader>gs :Gstatus<CR>
