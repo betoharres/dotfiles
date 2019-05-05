@@ -157,7 +157,7 @@ nmap <Leader>sh <Plug>GitGutterStageHunk
 nmap <Leader>rh <Plug>GitGutterRevertHunk
 
 " easy motion keybinding
-nmap <leader><leader> <Plug>(easymotion-prefix)
+nmap <leader>m <Plug>(easymotion-prefix)
 nmap <leader>f <Plug>(easymotion-prefix)s
 
 " Ale
