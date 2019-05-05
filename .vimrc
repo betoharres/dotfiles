@@ -157,7 +157,7 @@ nmap <Leader>sh <Plug>GitGutterStageHunk
 nmap <Leader>rh <Plug>GitGutterRevertHunk
 
 " easy motion keybinding
-nmap m <Plug>(easymotion-prefix)
+nmap <leader><leader> <Plug>(easymotion-prefix)
 nmap <leader>f <Plug>(easymotion-prefix)s
 
 " Ale
@@ -196,9 +196,6 @@ nmap gv ggVG$
 " Move lines up and down
 nno <C-K> ddkP
 nno <C-J> ddp
-
-nmap <leader>v :tabnew ~/.vimrc<cr>
-nmap <leader>z :tabnew ~/.zshrc<cr>
 
 "switch panes
 nmap , <C-W><C-W>
