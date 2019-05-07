@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tommcdo/vim-lion'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'matze/vim-move'
+  Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 syntax on
