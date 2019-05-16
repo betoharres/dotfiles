@@ -222,8 +222,8 @@ nmap <leader>a :Ag<cr>
 nmap <leader>c :Commands<cr>
 
 " Move through panes
-nnoremap <up> <C-w>-
-nnoremap <down> <C-w>+
+nnoremap <up> <C-w>+
+nnoremap <down> <C-w>-
 nnoremap <left> <C-w><
 nnoremap <right> <C-w>>
 
