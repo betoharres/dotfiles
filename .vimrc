@@ -194,9 +194,12 @@ nmap N Nzz
 " Visual all content in the file
 nmap gv ggVG$
 
-" Move lines up and down
-nno <C-K> ddkP
-nno <C-J> ddp
+" Mappings for moving lines and preserving indentation
+" http://vim.wikia.com/wiki/Moving_lines_up_or_down
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 "switch panes
 nmap , <C-W><C-W>
