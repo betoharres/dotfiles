@@ -51,6 +51,9 @@ set autowrite     " Automatically :write before running commands
 
 set cursorline
 highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
+" Changes cursor color at INSERT mode
+autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=black guifg=NONE guibg=#121212
+autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 
 " Softtabs, 2 spaces
 set tabstop=2
