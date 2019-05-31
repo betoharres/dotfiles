@@ -32,6 +32,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'matze/vim-move'
   Plug 'wakatime/vim-wakatime'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'luochen1990/rainbow'
 call plug#end()
 
 syntax on
