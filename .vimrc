@@ -248,6 +248,11 @@ nnoremap <Leader>n :NERDTreeFind<CR>
 " Open fuzzy finder files(faster than ctrlP)
 nmap <leader>j :GFiles --others --exclude-standard --cached<CR>
 
+function! FormatToMax80()
+  :g/\%>79v/norm 77|gql
+endfunction
+noremap <leader>gm :call FormatToMax80()<CR>
+
 " Remove trailing whitespace
 function! StripWhitespace()
     let save_cursor = getpos(".")
