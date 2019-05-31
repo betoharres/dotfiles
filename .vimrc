@@ -133,6 +133,7 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 let g:fzf_history_dir = '~/.fzf-history'
+let g:fzf_tags_command = 'ctags -R .'
 
 " gitgutter
 set signcolumn=yes
