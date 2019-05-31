@@ -83,6 +83,10 @@ set diffopt+=vertical
 " Toggle identation in INSERT mode
 set pastetoggle=<F2>
 
+" Set line max leng; if you do gql for example vim will break the line at the
+" white space before the last character at the 80 column.
+setl tw=80
+
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
