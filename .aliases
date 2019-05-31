@@ -1,7 +1,6 @@
 alias ..='cd ..'
 alias ~='cd ~'
 alias ll='gls -la --color --group-directories-first'
-alias ga='git add -A'
 alias gc='git commit -v'
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO'

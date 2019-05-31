@@ -21,6 +21,7 @@ function c() { cd ~/code/$@; }
 function h() { cd ~/$@; }
 function v() { vim $@; }
 function gamend() {git commit --amend -m "$*";}
+function ga() {git add "*$@*";}
 function gcp() {git add -A && git commit -m "$*" && git push;}
 function opendiff () { vim -p $(git status -s | awk '{print $2}') }
 function youtube-mp3() {
