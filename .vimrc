@@ -9,7 +9,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/tComment'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-fugitive'
-  Plug 'scrooloose/nerdtree'
+  " Plug 'scrooloose/nerdtree'
   Plug 'Lokaltog/vim-easymotion'
   Plug 'terryma/vim-expand-region'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -28,7 +28,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tommcdo/vim-lion'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'matze/vim-move'
-  Plug 'wakatime/vim-wakatime'
   Plug 'jiangmiao/auto-pairs'
   Plug 'luochen1990/rainbow'
 call plug#end()
@@ -87,14 +86,15 @@ set pastetoggle=<F2>
 " white space before the last character at the 80 column.
 setl tw=80
 
+" netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
-
-" NERDTree
-let g:nerdtree_tabs_open_on_console_startup = 1
-let NERDTreeQuitOnOpen = 1
-let g:nerdtree_tabs_smart_startup_focus = 1
-let NERDTreeShowHidden = 1
 
 " UtilSnips
 let g:UltiSnipsExpandTrigger="<C-p>"
@@ -234,9 +234,9 @@ nmap <Tab>  :tabnext<CR>
 " Equalize panes
 nmap <leader>= <C-w>=
 
-" NERDTree
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <Leader>n :NERDTreeFind<CR>
+" netrw
+nnoremap <C-n> :Lex<CR>
+nnoremap <Leader>n :Vex<CR>
 
 " Open fuzzy finder files(faster than ctrlP)
 nmap <leader>j :GFiles --others --exclude-standard --cached<CR>
