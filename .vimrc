@@ -239,6 +239,10 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " Open fuzzy finder files(faster than ctrlP)
 nmap <leader>j :GFiles --others --exclude-standard --cached<CR>
 
+" emmet
+inoremap <C-e>e <esc>:call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>wwi
+nnoremap <C-e>e :call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>ww
+
 function! FormatToMax80()
   :g/\%>79v/norm 77|gql
 endfunction
