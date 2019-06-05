@@ -322,8 +322,6 @@ function! ToggleLExplorer()
 endfunction
 nnoremap <silent> <leader>n :call ToggleVExplorer()<CR>
 
-set autochdir
-
 augroup vimrcEx
   autocmd!
   " When editing a file, always jump to the last known cursor position.
