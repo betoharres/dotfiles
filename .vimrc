@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
   Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
+  Plug 'MaxMEllon/vim-jsx-pretty'
   Plug 'rhysd/clever-f.vim'
   Plug 'mattn/emmet-vim'
   Plug 'SirVer/ultisnips'
@@ -84,6 +84,9 @@ set pastetoggle=<F2>
 " Set line max leng; if you do gql for example vim will break the line at the
 " white space before the last character at the 80 column.
 setl tw=80
+
+" jsx
+let g:vim_jsx_pretty_highlight_close_tag = 1
 
 " netrw
 let g:netrw_banner = 0
