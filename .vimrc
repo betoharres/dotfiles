@@ -233,6 +233,9 @@ nmap <Tab>  :tabnext<CR>
 " Equalize panes
 nmap <leader>= <C-w>=
 
+" search and replace in visual mode
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
 " Open fuzzy finder files(faster than ctrlP)
 nmap <leader>j :GFiles --others --exclude-standard --cached<CR>
 
