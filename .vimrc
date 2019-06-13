@@ -285,6 +285,9 @@ function! InsertTabWrapper()
 endfunction
 inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" NETRW - netrw
+""""""""""""""""""""""""""""""""""""""""""""""""""
 " Toggle Vexplore with Ctrl-O
 function! ToggleVExplorer()
     if exists("t:expl_buf_num")
@@ -330,6 +333,9 @@ function! ToggleLExplorer()
     endif
 endfunction
 nnoremap <silent> <leader>n :call ToggleVExplorer()<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" ////////////////////////////////////////////////
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
 augroup vimrcEx
   autocmd!
