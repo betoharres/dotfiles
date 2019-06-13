@@ -51,8 +51,10 @@ highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#12121
 " Changes cursor color at INSERT mode
 autocmd InsertEnter * hi CursorLine cterm=NONE ctermfg=NONE ctermbg=black guifg=NONE guibg=#121212
 autocmd InsertLeave * hi CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
+
+" Change status line color at INSERT mode
 autocmd InsertEnter * hi StatusLine ctermbg=yellow ctermfg=black
-autocmd InsertLeave * hi StatusLine ctermbg=NONE ctermfg=white
+autocmd InsertLeave * hi StatusLine ctermbg=NONE ctermfg=NONE
 
 hi StatusLine ctermbg=NONE ctermfg=white
 
