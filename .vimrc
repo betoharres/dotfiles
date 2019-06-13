@@ -9,7 +9,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/tComment'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-fugitive'
-  Plug 'Lokaltog/vim-easymotion'
+  Plug 'justinmk/vim-sneak'
   Plug 'terryma/vim-expand-region'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -17,7 +17,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
   Plug 'pangloss/vim-javascript'
   Plug 'MaxMEllon/vim-jsx-pretty'
-  Plug 'rhysd/clever-f.vim'
   Plug 'mattn/emmet-vim'
   Plug 'SirVer/ultisnips'
   Plug 'betoharres/vim-react-ultiSnips'
@@ -48,9 +47,14 @@ set autowrite     " Automatically :write before running commands
 
 set cursorline
 highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
+
 " Changes cursor color at INSERT mode
-autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=black guifg=NONE guibg=#121212
-autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
+autocmd InsertEnter * hi CursorLine cterm=NONE ctermfg=NONE ctermbg=black guifg=NONE guibg=#121212
+autocmd InsertLeave * hi CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
+autocmd InsertEnter * hi StatusLine ctermbg=yellow ctermfg=black
+autocmd InsertLeave * hi StatusLine ctermbg=NONE ctermfg=white
+
+hi StatusLine ctermbg=NONE ctermfg=white
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -145,6 +149,9 @@ let mapleader = "\<SPACE>"
 " vim-move
 let g:move_key_modifier = 'C'
 
+" sneak
+let g:sneak#label = 1
+
 "Fugitive
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gd :Gdiff<CR>
@@ -158,9 +165,9 @@ nmap <leader>gv :Gvsplit<CR>
 nmap <Leader>sh <Plug>GitGutterStageHunk
 nmap <Leader>rh <Plug>GitGutterRevertHunk
 
-" easy motion keybinding
-nmap <leader>m <Plug>(easymotion-prefix)
-nmap <leader>f <Plug>(easymotion-prefix)s
+" sneak
+nmap f <Plug>Sneak_s
+nmap F <Plug>Sneak_S
 
 " Ale
 nmap <leader>d :ALENext<CR>
