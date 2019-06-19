@@ -1,6 +1,3 @@
-# Protect your project from Windows line endings creeping in
-[core]
-  autocrlf = true
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
