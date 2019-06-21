@@ -95,6 +95,17 @@ setl tw=80
 " jsx
 let g:vim_jsx_pretty_highlight_close_tag = 1
 
+" NERDTree
+let g:nerdtree_tabs_open_on_console_startup = 1
+let NERDTreeQuitOnOpen = 1
+let g:nerdtree_tabs_smart_startup_focus = 1
+let NERDTreeShowHidden = 1
+let NERDTreeMinimalUI=1
+let NERDTreeMinimalMenu=1
+let NERDTreeStatusline=0
+let NERDTreeAutoDeleteBuffer=1
+
+
 " netrw
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -175,6 +186,10 @@ nmap F <Plug>Sneak_S
 " Ale
 nmap <leader>d :ALENext<CR>
 nmap <leader>u :ALEPrevious<CR>
+
+" NERDTree
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeFind<CR>
 
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
@@ -310,7 +325,6 @@ function! ToggleVExplorer()
          let t:expl_buf_num = bufnr("%")
     endif
 endfunction
-nnoremap <silent> <C-n> :call ToggleLExplorer()<CR>
 
 " Toggle Vexplore with Ctrl-O
 function! ToggleLExplorer()
@@ -333,7 +347,6 @@ function! ToggleLExplorer()
          let t:expl_buf_num = bufnr("%")
     endif
 endfunction
-nnoremap <silent> <leader>n :call ToggleVExplorer()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " ////////////////////////////////////////////////
 """"""""""""""""""""""""""""""""""""""""""""""""""
