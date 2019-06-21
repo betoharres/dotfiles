@@ -28,6 +28,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'matze/vim-move'
   Plug 'jiangmiao/auto-pairs'
   Plug 'luochen1990/rainbow'
+  Plug 'scrooloose/nerdtree'
 call plug#end()
 
 syntax on
