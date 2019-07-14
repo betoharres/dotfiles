@@ -287,6 +287,9 @@ nmap <leader>j :GFiles --others --exclude-standard --cached<CR>
 inoremap <C-e>e <esc>:call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>wwi
 nnoremap <C-e>e :call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>ww
 
+" yarn test
+nmap <leader>t :exec "!yarn test " . expand('%:r')<CR>
+
 function! FormatToMax80()
   :g/\%>79v/norm 77|gql
 endfunction
