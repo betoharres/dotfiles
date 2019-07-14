@@ -12,7 +12,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'justinmk/vim-sneak'
   Plug 'terryma/vim-expand-region'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
   Plug 'pangloss/vim-javascript'
@@ -382,6 +381,14 @@ augroup vimrcEx
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
+
+if filereadable(expand("~/.vimrc.linux"))
+  source ~/.vimrc.linux
+endif
+
+if filereadable(expand("~/.vimrc.osx"))
+  source ~/.vimrc.osx
+endif
 
 if filereadable(expand("~/code/dotfiles/.vimrc.local"))
     source ~/code/dotfiles/.vimrc.local
