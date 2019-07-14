@@ -1,0 +1,2 @@
+alias ll='ls -la --color --group-directories-first'
+alias radb='adb reverse tcp:7007 tcp:7007'

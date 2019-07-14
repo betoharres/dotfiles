@@ -4,6 +4,8 @@
 !.vimrc.bundles.linux
 !.vimrc.bundles.osx
 !.aliases
+!.aliases.linux
+!.aliases.osx
 !.gitignore
 !.gitconfig
 !.tmux.conf
