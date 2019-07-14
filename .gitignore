@@ -1,6 +1,8 @@
 *
 !.zshrc
 !.vimrc
+!.vimrc.linux
+!.vimrc.osx
 !.aliases
 !.gitignore
 !.gitconfig
