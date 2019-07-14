@@ -5,6 +5,8 @@
   email = betoharres@gmail.com
 [core]
   editor = vim
+[push]
+  default = current
 [alias]
   # A #########
   a = add
