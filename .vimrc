@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'luochen1990/rainbow'
   Plug 'scrooloose/nerdtree'
+  Plug 'jpalardy/vim-slime'
 call plug#end()
 
 syntax on
@@ -165,6 +166,15 @@ let g:move_key_modifier = 'C'
 
 " sneak
 let g:sneak#label = 1
+
+" vim-slime
+let g:slime_target = "tmux"
+let g:slime_dont_ask_default = 1
+let g:slime_default_config = {"socket_name": "default", "target_pane": "1.2"}
+let g:slime_no_mappings = 1
+xmap <C-p><C-p> <Plug>SlimeRegionSend
+nmap <C-p><C-p> <Plug>SlimeParagraphSend
+nmap <C-c>v     <Plug>SlimeConfig
 
 "Fugitive
 nmap <leader>gs :Gstatus<CR>
