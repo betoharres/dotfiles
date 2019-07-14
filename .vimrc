@@ -29,6 +29,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'luochen1990/rainbow'
   Plug 'scrooloose/nerdtree'
   Plug 'jpalardy/vim-slime'
+
+  if filereadable(expand("~/.vimrc.bundles.linux"))
+    source ~/.vimrc.bundles.linux
+  endif
+
+  if filereadable(expand("~/.vimrc.bundles.osx"))
+    source ~/.vimrc.bundles.osx
+  endif
+
 call plug#end()
 
 syntax on
@@ -381,14 +390,6 @@ augroup vimrcEx
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
-
-if filereadable(expand("~/.vimrc.linux"))
-  source ~/.vimrc.linux
-endif
-
-if filereadable(expand("~/.vimrc.osx"))
-  source ~/.vimrc.osx
-endif
 
 if filereadable(expand("~/code/dotfiles/.vimrc.local"))
     source ~/code/dotfiles/.vimrc.local

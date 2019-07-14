@@ -1,3 +1,0 @@
-call plug#begin('~/.vim/plugged')
-  Plug 'junegunn/fzf.vim'
-call plug#end()
