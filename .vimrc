@@ -139,6 +139,10 @@ let g:ale_set_highlights = 0
 let g:ale_sign_column_always = 1
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
 
 "Fzf key customization
 let g:fzf_action = {
@@ -196,6 +200,7 @@ nmap F <Plug>Sneak_S
 " Ale
 nmap <leader>d :ALENext<CR>
 nmap <leader>u :ALEPrevious<CR>
+nmap <leader>f :ALEFix<CR>
 
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
