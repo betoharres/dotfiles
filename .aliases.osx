@@ -3,3 +3,4 @@ alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO'
 alias emulator='cd $ANDROID_HOME/emulator && ./emulator @Nexus5X && cd -'
 alias mt='find . -type d -name "node_modules" -exec touch "{}/.metadata_never_index" \;'
+alias ctags="`brew --prefix`/bin/ctags"
