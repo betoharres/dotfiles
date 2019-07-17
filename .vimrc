@@ -128,8 +128,8 @@ let g:html_indent_tags = 'li\|p'
 
 " UtilSnips
 let g:UltiSnipsExpandTrigger="<C-p>"
-let g:UltiSnipsJumpForwardTrigger="<C-m>"
-let g:UltiSnipsJumpBackwardTrigger="<C-g>"
+let g:UltiSnipsJumpForwardTrigger="<C-l>"
+let g:UltiSnipsJumpBackwardTrigger="<C-j>"
 
 " Emmet
 let g:user_emmet_leader_key='<C-e>'
