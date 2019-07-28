@@ -56,17 +56,6 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
 set cursorline
-highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
-
-" Changes cursor color at INSERT mode
-autocmd InsertEnter * hi CursorLine cterm=NONE ctermfg=NONE ctermbg=black guifg=NONE guibg=#121212
-autocmd InsertLeave * hi CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
-
-" Change status line color at INSERT mode
-autocmd InsertEnter * hi StatusLine ctermbg=yellow ctermfg=black
-autocmd InsertLeave * hi StatusLine ctermbg=NONE ctermfg=NONE
-
-hi StatusLine ctermbg=NONE ctermfg=white
 
 " Softtabs, 2 spaces
 set tabstop=2
