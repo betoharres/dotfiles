@@ -252,7 +252,11 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " fzf git
 nmap <leader>C :Commits<cr>
 nmap <leader>b :Buffers<cr>
-nmap <leader>/ :Lines<cr>
+nmap <leader>h :Helptags<cr>
+nmap <leader>/ :History/<cr>
+nmap <leader>; :History:<cr>
+nmap <leader>m :Maps<cr>
+nmap <Leader>s :Filetypes<cr>
 " Fzf + the_silver_searcher
 nmap <leader>a :Ag<cr>
 
