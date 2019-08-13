@@ -196,6 +196,7 @@ nmap F <Plug>Sneak_S
 
 " Ale
 nmap <leader>d :ALENext<CR>
+nmap <leader>D :ALEDetail<CR>
 nmap <leader>u :ALEPrevious<CR>
 nmap <leader>f :ALEFix<CR>
 
