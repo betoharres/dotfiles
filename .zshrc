@@ -2,7 +2,13 @@ PROMPT="%~ $ "
 
 source ~/.aliases
 
-EDITOR=vim
+export EDITOR=vim
+export SHELL=zsh
+
+[ -f ~/.zshrc.linux ] && source ~/.zshrc.linux
+[ -f ~/.zshrc.osx ] && source ~/.zshrc.osx
+[ -f ~/.tmux/plugins/tmuxinator/completion ] && source ~/.tmux/plugins/tmuxinator/completion
+
 
 ##############################################################################
 # History Configuration
@@ -16,32 +22,30 @@ setopt    sharehistory      #Share history across terminals
 setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
 ############################################################
 
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
 # personal
 function c() { cd ~/code/$@; }
 function h() { cd ~/$@; }
 function v() { vim $@; }
 function gamend() {git commit --amend -m "$*";}
 function ga() {git add "*$@*";}
+function gl() {git log -n $1 --pretty=oneline;}
 function gcp() {git add -A && git commit -m "$*" && git push;}
 function opendiff () { vim -p $(git status -s | awk '{print $2}') }
 function youtube-mp3() {
   youtube-dl --extract-audio --audio-format mp3 $@;
 }
 
-LC_CTYPE=en_US.UTF-8
-LC_ALL=en_US.UTF-8
-
 export PATH=/usr/local/bin:$PATH
-export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:/Users/albertohrocha/.rbenv/shims
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
 
-export LDFLAGS="-L/usr/local/opt/readline/lib"
-export CPPFLAGS="-I/usr/local/opt/readline/include"
-
-eval "$(rbenv init -)"
 ##############################################################################
 # vi-mode
 ##############################################################################
@@ -66,6 +70,8 @@ bindkey '^w' backward-kill-word
 # allow ctrl-a and ctrl-e to move to beginning/end of line
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
+##############################################################################
+##############################################################################
 
 # fzf (this needs to be after vi-mode to avoid being overwritten)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -92,6 +98,10 @@ g() {
     git status
   fi
 }
+
+if [[ $(xmodmap -pm | grep 0x69) ]]; then
+  /usr/bin/xmodmap /home/betoharres/.Xmodmap
+fi
 
 ##############################################################################
 # git prompt
@@ -163,3 +173,5 @@ git_prompt_string() {
 # Set the right-hand prompt
 RPS1='$(git_prompt_string)'
 ######################################################################
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
