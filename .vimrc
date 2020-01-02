@@ -187,8 +187,8 @@ nmap <leader>gb :Gblame<CR>
 nmap <leader>gv :Gvsplit<CR>
 
 " Git Gutter
-nmap <Leader>sh <Plug>GitGutterStageHunk
-nmap <Leader>rh <Plug>GitGutterRevertHunk
+nmap <Leader>sh <Plug>(GitGutterStageHunk)
+nmap <Leader>rh <Plug>(GitGutterRevertHunk)
 
 " sneak
 nmap f <Plug>Sneak_s
