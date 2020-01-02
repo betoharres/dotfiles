@@ -293,7 +293,7 @@ inoremap <C-e>e <esc>:call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()
 nnoremap <C-e>e :call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>ww
 
 " yarn test
-nmap <leader>t :exec "!yarn test " . expand('%:r')<CR>
+nmap <leader>t :exec "!yarn test:watch " . expand('%:r')<CR>
 
 function! FormatToMax80()
   :g/\%>79v/norm 77|gql
