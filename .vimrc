@@ -75,7 +75,7 @@ set colorcolumn=+1
 
 " Numbers
 set number relativenumber
-set numberwidth=5
+set numberwidth=1
 
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
