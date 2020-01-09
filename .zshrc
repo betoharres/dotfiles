@@ -99,8 +99,11 @@ g() {
   fi
 }
 
-if [[ $(xmodmap -pm | grep 0x69) ]]; then
-  /usr/bin/xmodmap /home/betoharres/.Xmodmap
+if hash xmodmap 2>/dev/null
+then
+  if [[ $(xmodmap -pm | grep 0x69) ]]; then
+    /usr/bin/xmodmap /home/betoharres/.Xmodmap
+  fi
 fi
 
 ##############################################################################
