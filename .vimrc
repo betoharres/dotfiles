@@ -14,8 +14,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'airblade/vim-gitgutter'
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
-  Plug 'pangloss/vim-javascript'
-  Plug 'MaxMEllon/vim-jsx-pretty'
+  " Plug 'pangloss/vim-javascript'
+  " Plug 'MaxMEllon/vim-jsx-pretty'
+  Plug 'sheerun/vim-polyglot'
   Plug 'mattn/emmet-vim'
   Plug 'SirVer/ultisnips'
   Plug 'betoharres/vim-react-ultiSnips'
