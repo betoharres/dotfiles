@@ -14,8 +14,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'airblade/vim-gitgutter'
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
-  " Plug 'pangloss/vim-javascript'
-  " Plug 'MaxMEllon/vim-jsx-pretty'
   Plug 'sheerun/vim-polyglot'
   Plug 'mattn/emmet-vim'
   Plug 'SirVer/ultisnips'
@@ -30,6 +28,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'luochen1990/rainbow'
   Plug 'scrooloose/nerdtree'
   Plug 'jpalardy/vim-slime'
+  Plug 'rust-lang/rust.vim'
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -169,6 +168,9 @@ let g:move_key_modifier = 'C'
 " sneak
 let g:sneak#label = 1
 
+" rust
+let g:rustfmt_autosave = 1
+
 " vim-slime
 let g:slime_target = "tmux"
 let g:slime_dont_ask_default = 1
@@ -257,7 +259,6 @@ nmap <leader>b :Buffers<cr>
 nmap <leader>h :Helptags<cr>
 nmap <leader>/ :History/<cr>
 nmap <leader>; :History:<cr>
-nmap <leader>m :Maps<cr>
 nmap <Leader>s :Filetypes<cr>
 " Fzf + the_silver_searcher
 nmap <leader>a :Ag<cr>
@@ -284,7 +285,10 @@ nmap <Tab>  :tabnext<CR>
 nmap <leader>= <C-w>=
 
 " search and replace in visual mode
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <C-r> "hy:%s/<C-r>h//g<left><left><left>
+
+" rust
+nmap <leader>r :exec "!clear && rustc " . expand('%:t') . " && ./" . expand('%:r')<CR>
 
 " Open fuzzy finder files(faster than ctrlP)
 nmap <leader>j :GFiles --others --exclude-standard --cached<CR>
