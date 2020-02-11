@@ -43,7 +43,6 @@ call plug#end()
 syntax on
 colorscheme onehalfdark
 
-set t_Co=256
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
@@ -137,7 +136,7 @@ let g:user_emmet_settings = {
 " Ale
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
-let b:ale_linters = ['eslint']
+let b:ale_linters = ['eslint', 'rls']
 let g:ale_set_highlights = 0
 let g:ale_sign_column_always = 1
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
@@ -145,7 +144,14 @@ highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'css': ['prettier'],
+\   'rust': ['rustfmt'],
 \}
+
+" rust
+let g:rustfmt_autosave = 1
+let g:racer_experimental_completer = 1
+let g:ale_rust_rls_toolchain = 'stable'
+let g:ale_rust_cargo_use_clippy = 1
 
 "Fzf key customization
 let g:fzf_action = {
@@ -174,9 +180,6 @@ let g:move_key_modifier = 'C'
 " sneak
 let g:sneak#label = 1
 
-" rust
-let g:rustfmt_autosave = 1
-
 " vim-slime
 let g:slime_target = "tmux"
 let g:slime_dont_ask_default = 1
@@ -197,7 +200,6 @@ nmap <leader>gv :Gvsplit<CR>
 
 " Git Gutter
 nmap <Leader>sh <Plug>(GitGutterStageHunk)
-nmap <Leader>rh <Plug>(GitGutterRevertHunk)
 
 " sneak
 nmap f <Plug>Sneak_s
@@ -294,7 +296,7 @@ nmap <leader>= <C-w>=
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left><left>
 
 " rust
-nmap <leader>r :exec "!clear && rustc " . expand('%:t') . " && ./" . expand('%:r')<CR>
+nmap <leader>r :!clear<cr> \| :RustRun<cr>
 
 " Open fuzzy finder files(faster than ctrlP)
 nmap <leader>j :GFiles --others --exclude-standard --cached<CR>
