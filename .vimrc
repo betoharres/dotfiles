@@ -54,7 +54,7 @@ set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
-" This is only necessary if you use "set termguicolors"
+" This is only necessary if you use set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
@@ -145,6 +145,7 @@ let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'css': ['prettier'],
 \   'rust': ['rustfmt'],
+\   'ruby': ['rubocop'],
 \}
 
 " rust
@@ -178,7 +179,8 @@ let mapleader = "\<SPACE>"
 let g:move_key_modifier = 'C'
 
 " sneak
-let g:sneak#label = 1
+" let g:sneak#label = 1
+let g:sneak#s_next = 1
 
 " vim-slime
 let g:slime_target = "tmux"
@@ -293,7 +295,7 @@ nmap <Tab>  :tabnext<CR>
 nmap <leader>= <C-w>=
 
 " search and replace in visual mode
-vnoremap <C-r> "hy:%s/<C-r>h//g<left><left><left>
+vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 
 " rust
 nmap <leader>r :!clear<cr> \| :RustRun<cr>
@@ -307,6 +309,7 @@ nnoremap <C-e>e :call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>w
 
 " yarn test
 nmap <leader>t :exec "!yarn test:watch " . expand('%:r')<CR>
+nmap <leader>T :exec "!yarn test:debug " . expand('%:r')<CR>
 
 function! FormatToMax80()
   :g/\%>79v/norm 77|gql
