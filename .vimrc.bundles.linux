@@ -1,1 +1,2 @@
 Plug 'junegunn/fzf.vim'
+set termguicolors
