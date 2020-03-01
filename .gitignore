@@ -1,5 +1,7 @@
 *
 !.zshrc
+!.zshrc.osx
+!.zshrc.linux
 !.vimrc
 !.vimrc.bundles.linux
 !.vimrc.bundles.osx

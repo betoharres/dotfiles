@@ -4,9 +4,8 @@ source ~/.aliases
 
 export EDITOR=vim
 export SHELL=zsh
+export LANG=en_US.UTF-8
 
-[ -f ~/.zshrc.linux ] && source ~/.zshrc.linux
-[ -f ~/.zshrc.osx ] && source ~/.zshrc.osx
 [ -f ~/.tmux/plugins/tmuxinator/completion ] && source ~/.tmux/plugins/tmuxinator/completion
 
 
@@ -44,7 +43,6 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
 
 ##############################################################################
 # vi-mode
@@ -199,4 +197,15 @@ git_prompt_string() {
 RPS1='$(git_prompt_string)'
 ######################################################################
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+case "$(uname -s)" in
+   Darwin)
+      [ -f ~/.zshrc.osx ] && source ~/.zshrc.osx
+     ;;
+
+   Linux)
+      [ -f ~/.zshrc.linux ] && source ~/.zshrc.linux
+     ;;
+
+   *)
+     ;;
+esac
