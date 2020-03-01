@@ -11,6 +11,8 @@
 !.gitignore
 !.gitconfig
 !.tmux.conf
+!.tmux.conf.linux
+!.tmux.conf.osx
 !.fzf.zsh
 !.fzf.bash
 .secrets
