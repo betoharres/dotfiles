@@ -1,4 +1,4 @@
-alias ll='ls -la --color --group-directories-first'
+alias ll='ls -lah --color --group-directories-first'
 alias ctags="ctags -R *"
 alias radb='adb reverse tcp:7007 tcp:7007'
 alias emulator='cd $ANDROID_HOME/emulator && ./emulator @NexusS && cd -'
