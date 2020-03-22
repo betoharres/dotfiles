@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/tComment'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-fugitive'
-  Plug 'justinmk/vim-sneak'
   Plug 'terryma/vim-expand-region'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'airblade/vim-gitgutter'
