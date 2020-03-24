@@ -200,11 +200,11 @@ RPS1='$(git_prompt_string)'
 
 case "$(uname -s)" in
    Darwin)
-      [ -f ~/.zshrc.osx ] && source ~/.zshrc.osx
+      [ -L $HOME/.zshrc.osx ] && source $HOME/.zshrc.osx
      ;;
 
    Linux)
-      [ -f ~/.zshrc.linux ] && source ~/.zshrc.linux
+      [ -L $HOME/.zshrc.linux ] && source $HOME/.zshrc.linux
      ;;
 
    *)
