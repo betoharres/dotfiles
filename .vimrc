@@ -394,6 +394,14 @@ augroup vimrcEx
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
 
+if filereadable(expand("~/code/dotfiles/.vimrc.linux"))
+    source ~/code/dotfiles/.vimrc.linux
+end
+
+if filereadable(expand("~/code/dotfiles/.vimrc.osx"))
+    source ~/code/dotfiles/.vimrc.osx
+end
+
 if filereadable(expand("~/code/dotfiles/.vimrc.local"))
     source ~/code/dotfiles/.vimrc.local
 end
