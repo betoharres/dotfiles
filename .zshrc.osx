@@ -1,4 +1,2 @@
-echo "HI"
-
 export PATH=$PATH:$HOME/.rbenv/shims
 eval "$(rbenv init -)"
