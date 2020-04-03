@@ -272,9 +272,6 @@ nnoremap <down> <C-w>-
 nnoremap <left> <C-w><
 nnoremap <right> <C-w>>
 
-vmap <Leader>y "+y
-nmap <Leader>p "+P
-
 " Tab navigation
 nmap <Leader><Tab> :tabnew<CR>
 nmap <Leader>i :tabnew<CR>
