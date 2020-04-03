@@ -176,10 +176,6 @@ let mapleader = "\<SPACE>"
 " vim-move
 let g:move_key_modifier = 'C'
 
-" sneak
-" let g:sneak#label = 1
-let g:sneak#s_next = 1
-
 " vim-slime
 let g:slime_target = "tmux"
 let g:slime_dont_ask_default = 1
@@ -200,10 +196,6 @@ nmap <leader>gv :Gvsplit<CR>
 
 " Git Gutter
 nmap <Leader>sh <Plug>(GitGutterStageHunk)
-
-" sneak
-nmap f <Plug>Sneak_s
-nmap F <Plug>Sneak_S
 
 " Ale
 nmap <leader>d :ALENext<CR>
@@ -279,9 +271,6 @@ nnoremap <up> <C-w>+
 nnoremap <down> <C-w>-
 nnoremap <left> <C-w><
 nnoremap <right> <C-w>>
-
-vmap <Leader>y "+y
-nmap <Leader>p "+P
 
 " Tab navigation
 nmap <Leader><Tab> :tabnew<CR>
