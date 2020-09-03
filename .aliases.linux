@@ -3,5 +3,6 @@ alias ctags="ctags -R *"
 alias radb='adb reverse tcp:7007 tcp:7007'
 alias emulator='cd $ANDROID_HOME/emulator && ./emulator @NexusS && cd -'
 alias iov='tmuxinator start iov'
-alias debugger="cd ~/code/react-native-debugger-0.10.5 && yarn start"
+alias debugger="cd ~/code/react-native-debugger && yarn start"
+alias flipper="cd ~/code/flipper && ./flipper"
 alias studio="cd ~/Apps/android-studio/bin && ./studio.sh"
