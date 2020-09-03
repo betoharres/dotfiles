@@ -28,6 +28,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'jpalardy/vim-slime'
   Plug 'rust-lang/rust.vim'
+  Plug 'vim-scripts/SingleCompile'
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
