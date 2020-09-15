@@ -16,4 +16,5 @@
 !.tmux.conf.osx
 !.fzf.zsh
 !.fzf.bash
+!.sqliterc
 .secrets
