@@ -1,8 +1,10 @@
-export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
 export PATH=$PATH:$HOME/.npm/bin
+export PATH=$PATH:$HOME/.rbenv/bin
 export TERM=screen-256color
 export GOPATH=~/go
 
 setopt  autocd pushdignoredups
 autoload -U compinit
 compinit
+
+eval "$(rbenv init -)"
