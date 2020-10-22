@@ -174,9 +174,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Leader
 let mapleader = "\<SPACE>"
 
-" vim-move
-let g:move_key_modifier = 'C'
-
 " vim-slime
 let g:slime_target = "tmux"
 let g:slime_dont_ask_default = 1
@@ -196,7 +193,7 @@ nmap <leader>gb :Gblame<CR>
 nmap <leader>gv :Gvsplit<CR>
 
 " Git Gutter
-nmap <Leader>sh <Plug>(GitGutterStageHunk)
+nmap <leader>sh <Plug>(GitGutterStageHunk)
 
 " Ale
 nmap <leader>d :ALENext<CR>
@@ -206,20 +203,20 @@ nmap <leader>f :ALEFix<CR>
 
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <Leader>n :NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeFind<CR>
 
 " Switch between the last two files
-nnoremap <Leader><Leader> <C-^>
+nnoremap <leader><leader> <C-^>
 
 " Go to Normal mode
 inoremap jk <esc>
 inoremap jj <esc>
 
 " Too old for this shit
-noremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-vmap <Leader>y "+y
-nmap <Leader>p "+P
+noremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+vmap <leader>y "+y
+nmap <leader>p "+P
 
 
 " Life saver
@@ -256,11 +253,8 @@ vmap <C-v> <Plug>(expand_region_shrink)
 
 " fzf git
 nmap <leader>C :Commits<cr>
-nmap <leader>b :Buffers<cr>
-nmap <leader>h :Helptags<cr>
 nmap <leader>/ :History/<cr>
-nmap <leader>; :History:<cr>
-nmap <Leader>s :Filetypes<cr>
+nmap <leader>: :History:<cr>
 " Fzf + the_silver_searcher
 nmap <leader>a :Ag<cr>
 
@@ -274,8 +268,8 @@ nnoremap <left> <C-w><
 nnoremap <right> <C-w>>
 
 " Tab navigation
-nmap <Leader><Tab> :tabnew<CR>
-nmap <Leader>i :tabnew<CR>
+nmap <leader><Tab> :tabnew<CR>
+nmap <leader>i :tabnew<CR>
 nmap <S-Tab> :tabprevious<CR>
 nmap <Tab>  :tabnext<CR>
 
