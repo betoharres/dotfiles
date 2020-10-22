@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-  name = Alberto Rocha
+  name = Alberto Harres
   email = betoharres@gmail.com
 [core]
   editor = vim
