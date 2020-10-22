@@ -98,13 +98,6 @@ g() {
   fi
 }
 
-if hash xmodmap 2>/dev/null
-then
-  if [[ $(xmodmap -pm | grep 0x69) ]]; then
-    /usr/bin/xmodmap /home/betoharres/.Xmodmap
-  fi
-fi
-
 ##############################################################################
 # git prompt
 ##############################################################################
