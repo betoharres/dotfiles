@@ -54,9 +54,6 @@ set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
-" This is only necessary if you use set termguicolors
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set t_Co=256
 
 set cursorline
@@ -386,14 +383,14 @@ augroup vimrcEx
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
 
-if filereadable(expand("~/code/dotfiles/.vimrc.linux"))
+if filereadable(expand("~/.vimrc.linux"))
     source ~/code/dotfiles/.vimrc.linux
 end
 
-if filereadable(expand("~/code/dotfiles/.vimrc.osx"))
+if filereadable(expand("~/.vimrc.osx"))
     source ~/code/dotfiles/.vimrc.osx
 end
 
-if filereadable(expand("~/code/dotfiles/.vimrc.local"))
+if filereadable(expand("~/.vimrc.local"))
     source ~/code/dotfiles/.vimrc.local
 end
