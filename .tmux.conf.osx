@@ -1,0 +1,2 @@
+set -g status-right '#(gitmux -cfg ~/.gitmux.conf "#{pane_current_path}")'
+set-option -ag status-right " #[fg=default]#{weather}"
