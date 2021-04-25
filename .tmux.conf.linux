@@ -4,3 +4,7 @@ set -ga terminal-overrides ",*256col*:Tc"
 # use 256 term for pretty colors
 # set -g default-terminal "screen-256color"
 # set -g default-terminal "tmux-256color"
+
+# set -g status-rght '#(gitmux -cfg ~/.gitmux.conf "#{pane_current_path}")'
+set -g status-right '#(gitmux)'
+set-option -ag status-right " #[fg=default]#{weather}"
