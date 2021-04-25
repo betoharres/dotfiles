@@ -73,7 +73,16 @@ bindkey '^e' end-of-line
 ##############################################################################
 
 # fzf (this needs to be after vi-mode to avoid being overwritten)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+case "$(uname -s)" in
+   Darwin)
+      [ -f ~/.fzf.zsh.osx ] && source ~/.fzf.zsh.osx
+      ;;
+   Linux)
+      [ -f ~/.fzf.zsh.linux ] && source ~/.fzf.zsh.linux
+      ;;
+   *)
+      ;;
+ esac
 
 # hit CTRL + z to go to background and foreground
 fancy-ctrl-z () {
@@ -209,7 +218,7 @@ case "$(uname -s)" in
      ;;
    Linux)
       [ -L $HOME/.zshrc.linux ] && source $HOME/.zshrc.linux
-     ;;
+    ;;
    *)
      ;;
 esac
