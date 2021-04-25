@@ -4,6 +4,10 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+" hi CursorLine term=bold cterm=bold guibg=Grey23
+" hi PmenuSel term=bold cterm=bold guibg=Black
+" hi Pmenu term=bold cterm=bold guibg=Grey23
+" hi Visual term=bold cterm=bold guibg=Grey26
 " if &term =~# '256color' && ( &term =~# '^screen'  || &term =~# '^tmux' )
 "     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 "     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"

@@ -5,8 +5,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-  Plug 'tpope/vim-surround'
   Plug 'vim-scripts/tComment'
+  Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-fugitive'
   Plug 'terryma/vim-expand-region'
@@ -19,16 +19,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'betoharres/vim-react-ultiSnips'
   Plug 'w0rp/ale'
   Plug 'Yggdroot/indentLine'
-  Plug 'tpope/vim-abolish'
   Plug 'tommcdo/vim-lion'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'matze/vim-move'
   Plug 'jiangmiao/auto-pairs'
   Plug 'luochen1990/rainbow'
   Plug 'scrooloose/nerdtree'
-  Plug 'jpalardy/vim-slime'
   Plug 'rust-lang/rust.vim'
   Plug 'vim-scripts/SingleCompile'
+  Plug 'AndrewRadev/tagalong.vim'
+  Plug 'yazgoo/unicodemoji'
+  Plug 'leafgarland/typescript-vim'
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -53,6 +55,8 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set spelllang=en_us,pt_br
+autocmd FileType gitcommit setlocal spell
 
 set t_Co=256
 
@@ -125,18 +129,21 @@ let g:UltiSnipsJumpBackwardTrigger="<C-j>"
 let g:user_emmet_leader_key='<C-e>'
 let g:user_emmet_settings = {
 \  'javascript.jsx' : {
-\      'extends' : 'jsx',
-\  },
+  \      'extends' : 'jsx',
+  \  },
 \}
 
 " Ale
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
-let b:ale_linters = ['eslint', 'rls']
 let g:ale_set_highlights = 0
 let g:ale_sign_column_always = 1
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+let g:ale_linters = {
+\   'javascript': ['eslint', 'flow-language-server'],
+\   'rust': ['rls'],
+\}
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'css': ['prettier'],
@@ -171,14 +178,8 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Leader
 let mapleader = "\<SPACE>"
 
-" vim-slime
-let g:slime_target = "tmux"
-let g:slime_dont_ask_default = 1
-let g:slime_default_config = {"socket_name": "default", "target_pane": "1.2"}
-let g:slime_no_mappings = 1
-xmap <C-p><C-p> <Plug>SlimeRegionSend
-nmap <C-p><C-p> <Plug>SlimeParagraphSend
-nmap <C-c>v     <Plug>SlimeConfig
+" tagalong
+let g:tagalong_filetypes = ['html', 'js']
 
 "Fugitive
 nmap <leader>gs :Gstatus<CR>
@@ -274,7 +275,7 @@ nmap <Tab>  :tabnext<CR>
 nmap <leader>= <C-w>=
 
 " search and replace in visual mode
-vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
+vnoremap <C-r> "hy:%s/<C-r>h/<C-r>h/g<left><left>
 
 " rust
 nmap <leader>r :!clear<cr> \| :RustRun<cr>
@@ -289,6 +290,8 @@ nnoremap <C-e>e :call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>w
 " yarn test
 nmap <leader>t :exec "!yarn test:watch " . expand('%:r')<CR>
 nmap <leader>T :exec "!yarn test:debug " . expand('%:r')<CR>
+
+inoremap <C-y> <SPACE><esc>:Unicodemoji<CR>
 
 function! FormatToMax80()
   :g/\%>79v/norm 77|gql
@@ -314,7 +317,7 @@ function! InsertTabWrapper()
     if !col || getline('.')[col - 1] !~ '\k'
         return "\<Tab>"
     else
-        return "\<C-p>"
+        return "\<C-n>"
     endif
 endfunction
 inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
@@ -382,6 +385,8 @@ augroup vimrcEx
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
+
+autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
 
 if filereadable(expand("~/.vimrc.linux"))
     source ~/code/dotfiles/.vimrc.linux
