@@ -192,6 +192,8 @@ nmap <leader>gv :Gvsplit<CR>
 
 " Git Gutter
 nmap <leader>sh <Plug>(GitGutterStageHunk)
+nmap ]c :GitGutterNextHunk<CR>zz
+nmap [c :GitGutterPrevHunk<CR>zz
 
 " Ale
 nmap <leader>d :ALENext<CR>
