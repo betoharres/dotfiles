@@ -29,8 +29,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/SingleCompile'
   Plug 'AndrewRadev/tagalong.vim'
   Plug 'yazgoo/unicodemoji'
-  Plug 'leafgarland/typescript-vim'
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -121,9 +120,9 @@ let g:netrw_sizestyle = "h"
 let g:html_indent_tags = 'li\|p'
 
 " UtilSnips
-let g:UltiSnipsExpandTrigger="<C-p>"
+let g:UltiSnipsExpandTrigger="<C-y>"
 let g:UltiSnipsJumpForwardTrigger="<C-l>"
-let g:UltiSnipsJumpBackwardTrigger="<C-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<C-\>"
 
 " Emmet
 let g:user_emmet_leader_key='<C-e>'
@@ -142,10 +141,13 @@ highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow-language-server'],
+\   'typescript': ['tsserver'],
 \   'rust': ['rls'],
 \}
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
+\   'typescriptreact': ['prettier'],
 \   'css': ['prettier'],
 \   'rust': ['rustfmt'],
 \   'ruby': ['rubocop'],
@@ -177,9 +179,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Leader
 let mapleader = "\<SPACE>"
-
-" tagalong
-let g:tagalong_filetypes = ['html', 'js']
 
 "Fugitive
 nmap <leader>gs :Gstatus<CR>
