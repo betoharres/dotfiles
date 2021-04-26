@@ -27,9 +27,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'rust-lang/rust.vim'
   Plug 'vim-scripts/SingleCompile'
-  Plug 'AndrewRadev/tagalong.vim'
   Plug 'yazgoo/unicodemoji'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'AndrewRadev/tagalong.vim'
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -400,3 +400,5 @@ end
 if filereadable(expand("~/.vimrc.local"))
     source ~/code/dotfiles/.vimrc.local
 end
+
+autocmd BufEnter * call tagalong#Init()
