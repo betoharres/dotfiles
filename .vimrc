@@ -30,6 +30,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'yazgoo/unicodemoji'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'AndrewRadev/tagalong.vim'
+  " Plug 'morhetz/gruvbox'
+  Plug 'lifepillar/vim-gruvbox8'
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -42,7 +44,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 syntax on
-colorscheme onehalfdark
+" colorscheme onehalfdark
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
@@ -292,7 +294,13 @@ nnoremap <C-e>e :call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>w
 nmap <leader>t :exec "!yarn test:watch " . expand('%:r')<CR>
 nmap <leader>T :exec "!yarn test:debug " . expand('%:r')<CR>
 
+" unicodemoji
 inoremap <C-y> <SPACE><esc>:Unicodemoji<CR>
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 function! FormatToMax80()
   :g/\%>79v/norm 77|gql
@@ -400,5 +408,8 @@ end
 if filereadable(expand("~/.vimrc.local"))
     source ~/code/dotfiles/.vimrc.local
 end
+
+colorscheme gruvbox8_soft
+set bg=dark
 
 autocmd BufEnter * call tagalong#Init()

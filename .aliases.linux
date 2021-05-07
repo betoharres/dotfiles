@@ -6,3 +6,4 @@ alias iov='tmuxinator start iov'
 alias debugger="cd ~/code/react-native-debugger && yarn start"
 alias flipper="cd ~/code/flipper && ./flipper"
 alias studio="cd ~/Apps/android-studio/bin && ./studio.sh"
+alias rndebugger="cd ~/Downloads/debugger && ./react-native-debugger"
