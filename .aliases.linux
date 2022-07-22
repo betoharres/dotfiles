@@ -1,9 +1,9 @@
 alias ll='ls -lah --color --group-directories-first'
 alias ctags="ctags -R *"
 alias radb='adb reverse tcp:7007 tcp:7007'
-alias emulator='cd $ANDROID_HOME/emulator && ./emulator @NexusS && cd -'
+alias emulator='$ANDROID_HOME/emulator/emulator'
 alias iov='tmuxinator start iov'
 alias debugger="cd ~/code/react-native-debugger && yarn start"
-alias flipper="cd ~/code/flipper && ./flipper"
+alias flipper="cd ~/code/flipper/desktop && yarn start"
 alias studio="cd ~/Apps/android-studio/bin && ./studio.sh"
-alias rndebugger="cd ~/Downloads/debugger && ./react-native-debugger"
+alias rndebugger="cd ~/Downloads/debugger/release/'React Native Debugger-linux-x64' && ./react-native-debugger"
