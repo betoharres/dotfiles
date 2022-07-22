@@ -30,8 +30,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'yazgoo/unicodemoji'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'AndrewRadev/tagalong.vim'
-  " Plug 'morhetz/gruvbox'
   Plug 'lifepillar/vim-gruvbox8'
+  Plug 'tpope/vim-rails'
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -135,6 +135,7 @@ let g:user_emmet_settings = {
 \}
 
 " Ale
+let g:ale_fix_on_save = 1
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_set_highlights = 0
@@ -173,7 +174,7 @@ let g:fzf_tags_command = 'ctags -R .'
 " gitgutter
 set signcolumn=yes
 set updatetime=100
-let g:gitgutter_max_signs = 100
+let g:gitgutter_max_signs = 200
 
 " tComment
 " Disable new line with comment (if the current line is a comment)
@@ -263,10 +264,10 @@ nmap <leader>a :Ag<cr>
 nmap <leader>c :Commands<cr>
 
 " Move through panes
-nnoremap <up> <C-w>+
-nnoremap <down> <C-w>-
-nnoremap <left> <C-w><
-nnoremap <right> <C-w>>
+nnoremap <down> <C-w>+
+nnoremap <up> <C-w>-
+nnoremap <right> <C-w><
+nnoremap <left> <C-w>>
 
 " Tab navigation
 nmap <leader><Tab> :tabnew<CR>
@@ -276,6 +277,9 @@ nmap <Tab>  :tabnext<CR>
 
 " Equalize panes
 nmap <leader>= <C-w>=
+
+" swap panes
+nmap <leader>, <C-w><C-r>
 
 " search and replace in visual mode
 vnoremap <C-r> "hy:%s/<C-r>h/<C-r>h/g<left><left>
