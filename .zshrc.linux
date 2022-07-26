@@ -1,3 +1,11 @@
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
+
 export PATH=$PATH:$HOME/.npm/bin
 export PATH=$PATH:$HOME/.rbenv/bin
 export PATH=$PATH:$HOME/.node_modules/bin
@@ -18,3 +26,5 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib"
 export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
 export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib/pkgconfig"
+
+[ -f $HOME./.zshrc.linux.local ] && source $HOME./.zshrc.linux.local
