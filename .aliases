@@ -1,6 +1,7 @@
 alias ..='cd ..'
 alias ~='cd ~'
 alias gc='git commit -v'
+alias iovdebug='docker-compose up -d && docker attach $(docker-compose ps -q app)'
 
 [[ -f ~/.aliases.linux ]] && source ~/.aliases.linux
 [[ -f ~/.aliases.osx ]] && source ~/.aliases.osx
