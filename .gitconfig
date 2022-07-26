@@ -39,13 +39,14 @@
   st  = stash
   sta = stash apply
   stl = stash list
+  cleanup = "!git branch --merged | grep  -v master | xargs -n 1 -r git branch -d"
 [merge]
-    tool          = vimdiff
-    conflictstyle = diff3
-    prompt        = false
-    rebase        = false
+  tool          = vimdiff
+  conflictstyle = diff3
+  prompt        = false
+  rebase        = false
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
