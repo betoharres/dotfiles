@@ -171,6 +171,9 @@ let g:fzf_action = {
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_tags_command = 'ctags -R .'
 
+" https://github.com/Yggdroot/indentLine
+let g:indentLine_color_term = 239
+
 " gitgutter
 set signcolumn=yes
 set updatetime=100
