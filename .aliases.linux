@@ -4,6 +4,6 @@ alias radb='adb reverse tcp:7007 tcp:7007'
 alias emulator='$ANDROID_HOME/emulator/emulator'
 alias iov='tmuxinator start iov'
 alias debugger="cd ~/code/react-native-debugger && yarn start"
-alias flipper="cd ~/code/flipper/desktop && yarn start"
+alias flipper="unset NODE_OPTIONS && cd ~/code/flipper/desktop && yarn start"
 alias studio="cd ~/Apps/android-studio/bin && ./studio.sh"
 alias rndebugger="cd ~/Downloads/debugger/release/'React Native Debugger-linux-x64' && ./react-native-debugger"

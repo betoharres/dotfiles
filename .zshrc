@@ -44,6 +44,7 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$HOME/go/bin
+export NODE_OPTIONS=--openssl-legacy-provider
 
 ##############################################################################
 # vi-mode
@@ -222,3 +223,5 @@ case "$(uname -s)" in
    *)
      ;;
 esac
+
+export RAILS_MASTER_KEY=6c906454831f90e8603813101902fc7d

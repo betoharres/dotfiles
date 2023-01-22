@@ -12,26 +12,26 @@ call plug#begin('~/.vim/plugged')
   Plug 'terryma/vim-expand-region'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'airblade/vim-gitgutter'
-  Plug 'sonph/onehalf', {'rtp': 'vim/'}
   Plug 'sheerun/vim-polyglot'
+  Plug 'scrooloose/nerdtree'
+  Plug 'matze/vim-move'
   Plug 'mattn/emmet-vim'
+  Plug 'AndrewRadev/tagalong.vim'
+  Plug 'w0rp/ale'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'jeffkreeftmeijer/vim-numbertoggle'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'lifepillar/vim-gruvbox8'
+  Plug 'Yggdroot/indentLine'
   Plug 'SirVer/ultisnips'
   Plug 'betoharres/vim-react-ultiSnips'
-  Plug 'w0rp/ale'
-  Plug 'Yggdroot/indentLine'
-  Plug 'tommcdo/vim-lion'
-  Plug 'jeffkreeftmeijer/vim-numbertoggle'
-  Plug 'matze/vim-move'
-  Plug 'jiangmiao/auto-pairs'
-  Plug 'luochen1990/rainbow'
-  Plug 'scrooloose/nerdtree'
-  Plug 'rust-lang/rust.vim'
-  Plug 'vim-scripts/SingleCompile'
-  Plug 'yazgoo/unicodemoji'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'AndrewRadev/tagalong.vim'
-  Plug 'lifepillar/vim-gruvbox8'
-  Plug 'tpope/vim-rails'
+  " Plug 'sonph/onehalf', {'rtp': 'vim/'}
+  " Plug 'tommcdo/vim-lion'
+  " Plug 'luochen1990/rainbow'
+  " Plug 'rust-lang/rust.vim'
+  " Plug 'vim-scripts/SingleCompile'
+  " Plug 'yazgoo/unicodemoji'
+  " Plug 'tpope/vim-rails'
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -183,6 +183,10 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Leader
 let mapleader = "\<SPACE>"
 
+" identLine
+" let g:indentLine_setColors = 0
+let g:indentLine_color_gui = '#676767'
+
 "Fugitive
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gd :Gdiff<CR>
@@ -321,19 +325,32 @@ function! StripWhitespace()
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<Tab>"
-    else
-        return "\<C-n>"
-    endif
+" " Tab completion
+" " will insert tab at beginning of line,
+" " will use completion if not at beginning
+" set wildmode=list:longest,list:full
+" function! InsertTabWrapper()
+"     let col = col('.') - 1
+"     if !col || getline('.')[col - 1] !~ '\k'
+"         return "\<Tab>"
+"     else
+"         return "\<C-n>"
+"     endif
+" endfunction
+" inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " NETRW - netrw
