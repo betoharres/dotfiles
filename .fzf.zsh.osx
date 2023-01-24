@@ -1,0 +1,13 @@
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == */Users/betoharres/.fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/Users/betoharres/.fzf/bin"
+fi
+
+# Auto-completion
+# ---------------
+[[ $- == *i* ]] && source "/Users/betoharres/.fzf/shell/completion.bash" 2> /dev/null
+
+# Key bindings
+# ------------ pacman -S fzf
+source "/Users/betoharres/.fzf/shell/key-bindings.bash"
