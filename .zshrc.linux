@@ -6,7 +6,7 @@ if [[ ! "$SSH_AUTH_SOCK" ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
 
-export PATH=$PATH:$HOME/.rbenv/bin
+# export PATH=$PATH:$HOME/.rbenv/bin
 export PATH=$PATH:$HOME/.node_modules/bin
 
 export npm_config_prefix=~/.node_modules
@@ -19,8 +19,9 @@ compinit
 
 eval "$(rbenv init -)"
 
-export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib"
-export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
-export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib/pkgconfig"
+# export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib"
+# export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
+# export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib/pkgconfig"
 
-[ -f $HOME./.zshrc.linux.local ] && source $HOME./.zshrc.linux.local
+[ -f $HOME/.zshrc.linux.local ] && source $HOME/.zshrc.linux.local
+export NODE_OPTIONS=--openssl-legacy-provider

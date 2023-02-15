@@ -18,7 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'SirVer/ultisnips'
   Plug 'betoharres/vim-react-ultiSnips'
   Plug 'w0rp/ale'
-  Plug 'Yggdroot/indentLine'
+  " Plug 'Yggdroot/indentLine'
   Plug 'tommcdo/vim-lion'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'matze/vim-move'
@@ -32,6 +32,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'AndrewRadev/tagalong.vim'
   Plug 'lifepillar/vim-gruvbox8'
   Plug 'tpope/vim-rails'
+  Plug 'sainnhe/everforest'
+  Plug 'github/copilot.vim'
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -192,7 +194,7 @@ nmap <leader>gd :Gdiff<CR>
 nmap <leader>ga :Gwrite<CR>
 nmap <leader>gc :Gcommit -v<CR>
 nmap <leader>gp :Gpush<CR>
-nmap <leader>gb :Gblame<CR>
+nmap <leader>gb :Git blame<CR>
 nmap <leader>gv :Gvsplit<CR>
 
 " Git Gutter
@@ -416,7 +418,9 @@ if filereadable(expand("~/.vimrc.local"))
     source ~/code/dotfiles/.vimrc.local
 end
 
-colorscheme gruvbox8_soft
+" colorscheme gruvbox8_soft
+let g:forest_night_disable_italic_comment = 1
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+colorscheme everforest
 set bg=dark
-
-autocmd BufEnter * call tagalong#Init()

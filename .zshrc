@@ -6,8 +6,10 @@ export EDITOR=vim
 export SHELL=zsh
 export LANG=en_US.UTF-8
 
-[ -f ~/.tmux/plugins/tmuxinator/completion ] && source ~/.tmux/plugins/tmuxinator/completion
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
 
+[ -f ~/.tmux/plugins/tmuxinator/completion ] && source ~/.tmux/plugins/tmuxinator/completion
 
 ##############################################################################
 # History Configuration
@@ -21,21 +23,17 @@ setopt    sharehistory      #Share history across terminals
 setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
 ############################################################
 
-LC_CTYPE=en_US.UTF-8
-LC_ALL=en_US.UTF-8
-
 # personal
 function c() { cd ~/code/$@; }
 function h() { cd ~/$@; }
 function v() { vim $@; }
 function gamend() {git commit --amend -m "$*";}
 function ga() {git add "*$@*";}
-function gl() {git log -n $1 --pretty=oneline;}
+function gl() {git log --pretty=oneline;}
 function gcp() {git add -A && git commit -m "$*" && git push;}
 function opendiff () { vim -p $(git status -s | awk '{print $2}') }
-function youtube-mp3() {
-  youtube-dl --extract-audio --audio-format mp3 $@;
-}
+function youtube-mp3() { youtube-dl --extract-audio --audio-format mp3 $@; }
+function showPATH() { echo $PATH | tr ":" "\n" }
 
 export PATH=/usr/local/bin:$PATH
 export ANDROID_HOME=$HOME/Android/Sdk
