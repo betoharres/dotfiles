@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/emmet-vim'
   Plug 'SirVer/ultisnips'
   Plug 'betoharres/vim-react-ultiSnips'
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
   " Plug 'Yggdroot/indentLine'
   Plug 'tommcdo/vim-lion'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -142,10 +142,11 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_set_highlights = 0
 let g:ale_sign_column_always = 1
+let g:ale_virtualtext_cursor = 'disabled'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_linters = {
-\   'javascript': ['eslint', 'flow-language-server'],
+\   'javascript': ['eslint'],
 \   'typescript': ['tsserver'],
 \   'rust': ['rls'],
 \}
