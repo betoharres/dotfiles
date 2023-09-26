@@ -220,3 +220,9 @@ case "$(uname -s)" in
    *)
      ;;
 esac
+
+export TERM="xterm-256color"
+eval "$(rbenv init - zsh)"
+
+# bun completions
+[ -s "/home/betoharres/.bun/_bun" ] && source "/home/betoharres/.bun/_bun"

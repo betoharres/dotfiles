@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-rails'
   Plug 'sainnhe/everforest'
   Plug 'github/copilot.vim'
+  Plug 'justinmk/vim-sneak'
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -46,7 +47,6 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 syntax on
-" colorscheme onehalfdark
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
@@ -312,6 +312,15 @@ inoremap <C-y> <SPACE><esc>:Unicodemoji<CR>
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
+" sneak
+let g:sneak#s_next = 1
+nmap <leader>x <Plug>Sneak_s
+nmap <leader>X <Plug>Sneak_S
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+
 function! FormatToMax80()
   :g/\%>79v/norm 77|gql
 endfunction
@@ -419,9 +428,16 @@ if filereadable(expand("~/.vimrc.local"))
     source ~/code/dotfiles/.vimrc.local
 end
 
-" colorscheme gruvbox8_soft
+colorscheme everforest
 let g:forest_night_disable_italic_comment = 1
+let g:everforest_background = 'hard'
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
-colorscheme everforest
 set bg=dark
+
+" Enable true color
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
