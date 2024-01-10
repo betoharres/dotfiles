@@ -27,6 +27,7 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 function c() { cd ~/code/$@; }
 function h() { cd ~/$@; }
 function v() { vim $@; }
+function f() { grep -r $@ .;}
 function gamend() {git commit --amend -m "$*";}
 function ga() {git add "*$@*";}
 function gl() {git log --pretty=oneline;}
