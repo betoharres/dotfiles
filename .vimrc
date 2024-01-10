@@ -157,6 +157,7 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \   'rust': ['rustfmt'],
 \   'ruby': ['rubocop'],
+\   'php': ['prettier'],
 \}
 
 " rust
@@ -415,6 +416,17 @@ augroup vimrcEx
 let g:is_posix = 1
 
 autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
+
+" " prettier for PHP
+" function PrettierPhpCursor()
+"   let save_pos = getpos(".")
+"   %! prettier --stdin --parser=php
+"   call setpos('.', save_pos)
+" endfunction
+" " define custom command
+" command PrettierPhp call PrettierPhpCursor()
+" " format on save
+" autocmd BufwritePre *.php PrettierPhp
 
 if filereadable(expand("~/.vimrc.linux"))
     source ~/code/dotfiles/.vimrc.linux
