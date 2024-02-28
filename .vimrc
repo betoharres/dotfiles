@@ -15,26 +15,26 @@ call plug#begin('~/.vim/plugged')
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
   Plug 'sheerun/vim-polyglot'
   Plug 'mattn/emmet-vim'
-  Plug 'SirVer/ultisnips'
-  Plug 'betoharres/vim-react-ultiSnips'
   Plug 'dense-analysis/ale'
-  " Plug 'Yggdroot/indentLine'
-  Plug 'tommcdo/vim-lion'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'matze/vim-move'
   Plug 'jiangmiao/auto-pairs'
   Plug 'luochen1990/rainbow'
   Plug 'scrooloose/nerdtree'
-  Plug 'rust-lang/rust.vim'
   Plug 'vim-scripts/SingleCompile'
-  Plug 'yazgoo/unicodemoji'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'AndrewRadev/tagalong.vim'
   Plug 'lifepillar/vim-gruvbox8'
-  Plug 'tpope/vim-rails'
   Plug 'sainnhe/everforest'
-  Plug 'github/copilot.vim'
   Plug 'justinmk/vim-sneak'
+  " Plug 'github/copilot.vim'
+  " Plug 'SirVer/ultisnips'
+  " Plug 'betoharres/vim-react-ultiSnips'
+  " Plug 'tommcdo/vim-lion'
+  " Plug 'rust-lang/rust.vim'
+  " Plug 'tpope/vim-rails'
+  " Plug 'yazgoo/unicodemoji'
+  " Plug 'Yggdroot/indentLine'
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -288,11 +288,13 @@ nmap <leader>= <C-w>=
 " swap panes
 nmap <leader>, <C-w><C-r>
 
+" sneak
+let g:sneak#s_next = 1
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+
 " search and replace in visual mode
 vnoremap <C-r> "hy:%s/<C-r>h/<C-r>h/g<left><left>
-
-" rust
-nmap <leader>r :!clear<cr> \| :RustRun<cr>
 
 " Open fuzzy finder files(faster than ctrlP)
 nmap <leader>j :GFiles --others --exclude-standard --cached<CR>
@@ -301,26 +303,10 @@ nmap <leader>j :GFiles --others --exclude-standard --cached<CR>
 inoremap <C-e>e <esc>:call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>wwi
 nnoremap <C-e>e :call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>ww
 
-" yarn test
-nmap <leader>t :exec "!yarn test:watch " . expand('%:r')<CR>
-nmap <leader>T :exec "!yarn test:debug " . expand('%:r')<CR>
-
-" unicodemoji
-inoremap <C-y> <SPACE><esc>:Unicodemoji<CR>
-
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" sneak
-let g:sneak#s_next = 1
-nmap <leader>x <Plug>Sneak_s
-nmap <leader>X <Plug>Sneak_S
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
 
 function! FormatToMax80()
   :g/\%>79v/norm 77|gql
@@ -417,17 +403,6 @@ let g:is_posix = 1
 
 autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
 
-" " prettier for PHP
-" function PrettierPhpCursor()
-"   let save_pos = getpos(".")
-"   %! prettier --stdin --parser=php
-"   call setpos('.', save_pos)
-" endfunction
-" " define custom command
-" command PrettierPhp call PrettierPhpCursor()
-" " format on save
-" autocmd BufwritePre *.php PrettierPhp
-
 if filereadable(expand("~/.vimrc.linux"))
     source ~/code/dotfiles/.vimrc.linux
 end
@@ -453,3 +428,24 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+
+" =============== TRASH =============== 
+
+" yarn test
+" nmap <leader>t :exec "!yarn test:watch " . expand('%:r')<CR>
+" nmap <leader>T :exec "!yarn test:debug " . expand('%:r')<CR>
+
+" rust
+" nmap <leader>r :!clear<cr> \| :RustRun<cr>
+
+" " prettier for PHP
+" function PrettierPhpCursor()
+"   let save_pos = getpos(".")
+"   %! prettier --stdin --parser=php
+"   call setpos('.', save_pos)
+" endfunction
+" " define custom command
+" command PrettierPhp call PrettierPhpCursor()
+" " format on save
+" autocmd BufwritePre *.php PrettierPhp
+
