@@ -27,6 +27,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'lifepillar/vim-gruvbox8'
   Plug 'sainnhe/everforest'
   Plug 'justinmk/vim-sneak'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
   " Plug 'github/copilot.vim'
   " Plug 'SirVer/ultisnips'
   " Plug 'betoharres/vim-react-ultiSnips'
