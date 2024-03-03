@@ -28,6 +28,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'sainnhe/everforest'
   Plug 'justinmk/vim-sneak'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'Yggdroot/indentLine'
 
   " Plug 'github/copilot.vim'
   " Plug 'SirVer/ultisnips'
@@ -36,7 +37,6 @@ call plug#begin('~/.vim/plugged')
   " Plug 'rust-lang/rust.vim'
   " Plug 'tpope/vim-rails'
   " Plug 'yazgoo/unicodemoji'
-  " Plug 'Yggdroot/indentLine'
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -125,11 +125,6 @@ let g:netrw_sizestyle = "h"
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
-" UtilSnips
-let g:UltiSnipsExpandTrigger="<C-y>"
-let g:UltiSnipsJumpForwardTrigger="<C-l>"
-" let g:UltiSnipsJumpBackwardTrigger="<C-\>"
-
 " Emmet
 let g:user_emmet_leader_key='<C-e>'
 let g:user_emmet_settings = {
@@ -162,12 +157,6 @@ let g:ale_fixers = {
 \   'php': ['prettier'],
 \}
 
-" rust
-let g:rustfmt_autosave = 1
-let g:racer_experimental_completer = 1
-let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_rust_cargo_use_clippy = 1
-
 "Fzf key customization
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -192,13 +181,18 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Leader
 let mapleader = "\<SPACE>"
 
+" sql-language-server
+let g:LanguageClient_serverCommands = {
+    \ 'sql': ['sql-language-server', 'up', '--method', 'node-ipc'],
+    \ }
+
 "Fugitive
-nmap <leader>gs :Gstatus<CR>
 nmap <leader>gd :Gdiff<CR>
+nmap <leader>gb :Git blame<CR>
+nmap <leader>gs :Gstatus<CR>
 nmap <leader>ga :Gwrite<CR>
 nmap <leader>gc :Gcommit -v<CR>
 nmap <leader>gp :Gpush<CR>
-nmap <leader>gb :Git blame<CR>
 nmap <leader>gv :Gvsplit<CR>
 
 " Git Gutter
@@ -266,6 +260,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 nmap <leader>C :Commits<cr>
 nmap <leader>/ :History/<cr>
 nmap <leader>: :History:<cr>
+
 " Fzf + the_silver_searcher
 nmap <leader>a :Ag<cr>
 
@@ -280,7 +275,6 @@ nnoremap <left> <C-w>>
 
 " Tab navigation
 nmap <leader><Tab> :tabnew<CR>
-nmap <leader>i :tabnew<CR>
 nmap <S-Tab> :tabprevious<CR>
 nmap <Tab>  :tabnext<CR>
 
@@ -289,11 +283,6 @@ nmap <leader>= <C-w>=
 
 " swap panes
 nmap <leader>, <C-w><C-r>
-
-" sneak
-let g:sneak#s_next = 1
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
 
 " search and replace in visual mode
 vnoremap <C-r> "hy:%s/<C-r>h/<C-r>h/g<left><left>
@@ -305,10 +294,23 @@ nmap <leader>j :GFiles --others --exclude-standard --cached<CR>
 inoremap <C-e>e <esc>:call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>wwi
 nnoremap <C-e>e :call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>ww
 
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" coc.vim
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 function! FormatToMax80()
   :g/\%>79v/norm 77|gql
@@ -324,20 +326,6 @@ function! StripWhitespace()
     call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
-
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<Tab>"
-    else
-        return "\<C-n>"
-    endif
-endfunction
-inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " NETRW - netrw
@@ -451,3 +439,37 @@ endif
 " " format on save
 " autocmd BufwritePre *.php PrettierPhp
 
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" sneak
+" let g:sneak#s_next = 1
+" nmap f <Plug>Sneak_f
+" nmap F <Plug>Sneak_F
+
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+" set wildmode=list:longest,list:full
+" function! InsertTabWrapper()
+"     let col = col('.') - 1
+"     if !col || getline('.')[col - 1] !~ '\k'
+"         return "\<Tab>"
+"     else
+"         return "\<C-n>"
+"     endif
+" endfunction
+" inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
+
+" " UtilSnips
+" let g:UltiSnipsExpandTrigger="<C-y>"
+" let g:UltiSnipsJumpForwardTrigger="<C-l>"
+" let g:UltiSnipsJumpBackwardTrigger="<C-\>"
+
+" rust
+" let g:rustfmt_autosave = 1
+" let g:racer_experimental_completer = 1
+" let g:ale_rust_rls_toolchain = 'stable'
+" let g:ale_rust_cargo_use_clippy = 1
