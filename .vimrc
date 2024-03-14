@@ -24,19 +24,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/SingleCompile'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'AndrewRadev/tagalong.vim'
-  Plug 'lifepillar/vim-gruvbox8'
-  Plug 'sainnhe/everforest'
-  Plug 'justinmk/vim-sneak'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'Yggdroot/indentLine'
-
-  " Plug 'github/copilot.vim'
-  " Plug 'SirVer/ultisnips'
-  " Plug 'betoharres/vim-react-ultiSnips'
-  " Plug 'tommcdo/vim-lion'
-  " Plug 'rust-lang/rust.vim'
-  " Plug 'tpope/vim-rails'
-  " Plug 'yazgoo/unicodemoji'
+  Plug 'kadekillary/skull-vim'
+  Plug 'logico/typewriter-vim'
+  Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/limelight.vim'
+  Plug 'ruby-formatter/rufo-vim'
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -74,7 +68,7 @@ set shiftround
 set expandtab
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+set list listchars=tab:\ \ ,trail:·,nbsp:·
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
@@ -156,6 +150,16 @@ let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \   'php': ['prettier'],
 \}
+
+" rufo ruby formatter
+let g:rufo_auto_formatting = 1
+
+" vim-go
+let g:go_fmt_command = "golines"
+let g:go_fmt_options = {
+    \ 'golines': '-m 80',
+    \ }
+let g:go_def_mode='godef'
 
 "Fzf key customization
 let g:fzf_action = {
@@ -405,7 +409,7 @@ if filereadable(expand("~/.vimrc.local"))
     source ~/code/dotfiles/.vimrc.local
 end
 
-colorscheme everforest
+colorscheme skull
 let g:forest_night_disable_italic_comment = 1
 let g:everforest_background = 'hard'
 let &t_ZH="\e[3m"

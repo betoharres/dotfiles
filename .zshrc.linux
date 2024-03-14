@@ -26,3 +26,6 @@ eval "$(rbenv init -)"
 export GOOGLE_APPLICATION_CREDENTIALS="/home/betoharres/code/analytics-otz/OTZAds-c2b2aa3fbf46.json"
 [ -f $HOME/.zshrc.linux.local ] && source $HOME/.zshrc.linux.local
 export NODE_OPTIONS=--openssl-legacy-provider
+
+# bun completions
+[ -s "/home/betoharres/.bun/_bun" ] && source "/home/betoharres/.bun/_bun"
