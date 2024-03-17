@@ -31,6 +31,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
   Plug 'ruby-formatter/rufo-vim'
+  Plug 'romgrk/doom-one.vim'
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -396,11 +397,11 @@ augroup vimrcEx
 let g:is_posix = 1
 
 if filereadable(expand("~/.vimrc.linux"))
-    source ~/code/dotfiles/.vimrc.linux
+  autocmd VimEnter * source ~/.vimrc.linux
 end
 
 if filereadable(expand("~/.vimrc.osx"))
-    source ~/.vimrc.osx
+    autocmd VimEnter * source ~/.vimrc.osx
 end
 
 if filereadable(expand("~/.vimrc.local"))
