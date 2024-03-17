@@ -395,14 +395,12 @@ augroup vimrcEx
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
 
-autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
-
 if filereadable(expand("~/.vimrc.linux"))
     source ~/code/dotfiles/.vimrc.linux
 end
 
 if filereadable(expand("~/.vimrc.osx"))
-    source ~/code/dotfiles/.vimrc.osx
+    source ~/.vimrc.osx
 end
 
 if filereadable(expand("~/.vimrc.local"))
@@ -410,20 +408,22 @@ if filereadable(expand("~/.vimrc.local"))
 end
 
 colorscheme skull
-let g:forest_night_disable_italic_comment = 1
-let g:everforest_background = 'hard'
-let &t_ZH="\e[3m"
-let &t_ZR="\e[23m"
-set bg=dark
-
-" Enable true color
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
 
 " =============== TRASH =============== 
+
+" let g:forest_night_disable_italic_comment = 1
+" let g:everforest_background = 'hard'
+" let &t_ZH="\e[3m"
+" let &t_ZR="\e[23m"
+" set bg=dark
+
+" Enable true color
+" if exists('+termguicolors')
+"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"   set termguicolors
+" endif
 
 " yarn test
 " nmap <leader>t :exec "!yarn test:watch " . expand('%:r')<CR>
