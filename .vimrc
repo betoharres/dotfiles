@@ -33,6 +33,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'ruby-formatter/rufo-vim'
   Plug 'romgrk/doom-one.vim'
 
+  " golang debug
+  Plug 'preservim/vimux'
+  Plug 'sebdah/vim-delve'
+
+
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
   endif
@@ -141,6 +146,7 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['tsserver'],
 \   'rust': ['rls'],
+\   'go': ['gopls'],
 \}
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
@@ -160,7 +166,11 @@ let g:go_fmt_command = "golines"
 let g:go_fmt_options = {
     \ 'golines': '-m 80',
     \ }
-let g:go_def_mode='godef'
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
+" (golang) vim-delve & vimux
+let g:delve_use_vimux=1
 
 "Fzf key customization
 let g:fzf_action = {
