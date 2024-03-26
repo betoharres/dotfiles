@@ -9,6 +9,9 @@ fi
 # export PATH=$PATH:$HOME/.rbenv/bin
 export PATH=$PATH:$HOME/.node_modules/bin
 
+# pip3
+export PATH=$PATH:$HOME/.local/bin
+
 export npm_config_prefix=~/.node_modules
 export TERM=screen-256color
 export GOPATH=~/go
