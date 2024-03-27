@@ -32,6 +32,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/limelight.vim'
   Plug 'ruby-formatter/rufo-vim'
   Plug 'romgrk/doom-one.vim'
+  Plug 'lunacookies/vim-colors-xcode'
 
   " golang debug
   Plug 'preservim/vimux'
@@ -149,6 +150,7 @@ let g:ale_linters = {
 \   'go': ['gopls'],
 \}
 let g:ale_fixers = {
+\   'html': ['prettier'],
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
 \   'typescriptreact': ['prettier'],
