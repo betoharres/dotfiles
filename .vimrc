@@ -33,6 +33,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'ruby-formatter/rufo-vim'
   Plug 'romgrk/doom-one.vim'
   Plug 'lunacookies/vim-colors-xcode'
+  Plug 'joerdav/templ.vim'
+  Plug 'habamax/vim-godot'
 
   " golang debug
   Plug 'preservim/vimux'
@@ -148,6 +150,7 @@ let g:ale_linters = {
 \   'typescript': ['tsserver'],
 \   'rust': ['rls'],
 \   'go': ['gopls'],
+\   'sql': [''],
 \}
 let g:ale_fixers = {
 \   'html': ['prettier'],
@@ -220,7 +223,7 @@ nmap [c :GitGutterPrevHunk<CR>zz
 " Ale
 nmap <leader>d :ALENext<CR>
 nmap <leader>D :ALEDetail<CR>
-nmap <leader>u :ALEPrevious<CR>
+nmap <leader>b :ALEPrevious<CR>
 nmap <leader>f :ALEFix<CR>
 
 " NERDTree
@@ -423,7 +426,16 @@ end
 colorscheme skull
 autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
 
-" =============== TRASH =============== 
+" GDScript
+au BufReadPost *.gd set syntax=gdscript
+
+" golang =====
+au BufReadPost *.templ set syntax=gotexttmpl
+set autoread
+autocmd BufWritePost *.templ silent! execute "!PATH=\"$PATH:$(go env GOPATH)/bin\" templ fmt <afile> >/dev/null 2>&1" | redraw!
+" =========golang =====
+
+" =============== TRASH ===============
 
 " let g:forest_night_disable_italic_comment = 1
 " let g:everforest_background = 'hard'
@@ -469,16 +481,16 @@ autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning
-" set wildmode=list:longest,list:full
-" function! InsertTabWrapper()
-"     let col = col('.') - 1
-"     if !col || getline('.')[col - 1] !~ '\k'
-"         return "\<Tab>"
-"     else
-"         return "\<C-n>"
-"     endif
-" endfunction
-" inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
+set wildmode=list:longest,list:full
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<Tab>"
+    " else
+        " return "\<C-n>"
+    endif
+endfunction
+inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
 
 " " UtilSnips
 " let g:UltiSnipsExpandTrigger="<C-y>"
