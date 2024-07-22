@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
   Plug 'sheerun/vim-polyglot'
   Plug 'mattn/emmet-vim'
-  Plug 'dense-analysis/ale'
+  " Plug 'dense-analysis/ale'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'matze/vim-move'
   Plug 'jiangmiao/auto-pairs'
@@ -136,32 +136,32 @@ let g:user_emmet_settings = {
   \  },
 \}
 
-" Ale
-let g:ale_fix_on_save = 1
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-let g:ale_set_highlights = 0
-let g:ale_sign_column_always = 1
-let g:ale_virtualtext_cursor = 'disabled'
-highlight ALEErrorSign ctermbg=NONE ctermfg=red
-highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['tsserver'],
-\   'rust': ['rls'],
-\   'go': ['gopls'],
-\   'sql': [''],
-\}
-let g:ale_fixers = {
-\   'html': ['prettier'],
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier'],
-\   'typescriptreact': ['prettier'],
-\   'css': ['prettier'],
-\   'rust': ['rustfmt'],
-\   'ruby': ['rubocop'],
-\   'php': ['prettier'],
-\}
+" " Ale
+" let g:ale_fix_on_save = 1
+" let g:ale_sign_error = '✘'
+" let g:ale_sign_warning = '⚠'
+" let g:ale_set_highlights = 0
+" let g:ale_sign_column_always = 1
+" let g:ale_virtualtext_cursor = 'disabled'
+" highlight ALEErrorSign ctermbg=NONE ctermfg=red
+" highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+" let g:ale_linters = {
+" \   'javascript': ['eslint'],
+" \   'typescript': ['tsserver'],
+" \   'rust': ['rls'],
+" \   'go': ['gopls'],
+" \   'sql': [''],
+" \}
+" let g:ale_fixers = {
+" \   'html': ['prettier'],
+" \   'javascript': ['prettier'],
+" \   'typescript': ['prettier'],
+" \   'typescriptreact': ['prettier'],
+" \   'css': ['prettier'],
+" \   'rust': ['rustfmt'],
+" \   'ruby': ['rubocop'],
+" \   'php': ['prettier'],
+" \}
 
 " rufo ruby formatter
 let g:rufo_auto_formatting = 1
@@ -220,11 +220,11 @@ nmap <leader>sh <Plug>(GitGutterStageHunk)
 nmap ]c :GitGutterNextHunk<CR>zz
 nmap [c :GitGutterPrevHunk<CR>zz
 
-" Ale
-nmap <leader>d :ALENext<CR>
-nmap <leader>D :ALEDetail<CR>
-nmap <leader>b :ALEPrevious<CR>
-nmap <leader>f :ALEFix<CR>
+" " Ale
+" nmap <leader>d :ALENext<CR>
+" nmap <leader>D :ALEDetail<CR>
+" nmap <leader>b :ALEPrevious<CR>
+" nmap <leader>f :ALEFix<CR>
 
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
