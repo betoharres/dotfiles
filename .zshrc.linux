@@ -29,7 +29,8 @@ eval "$(rbenv init -)"
 # export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
 # export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib/pkgconfig"
 
-export GOOGLE_APPLICATION_CREDENTIALS="/home/betoharres/code/analytics-otz/OTZAds-c2b2aa3fbf46.json"
+# export GOOGLE_APPLICATION_CREDENTIALS="/home/betoharres/code/analytics-otz/OTZAds-c2b2aa3fbf46.json"
+export GOOGLE_APPLICATION_CREDENTIALS="./credentials.json"
 [ -f $HOME/.zshrc.linux.local ] && source $HOME/.zshrc.linux.local
 export NODE_OPTIONS=--openssl-legacy-provider
 

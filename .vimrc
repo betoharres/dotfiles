@@ -35,11 +35,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'lunacookies/vim-colors-xcode'
   Plug 'joerdav/templ.vim'
   Plug 'habamax/vim-godot'
+  Plug 'mbbill/undotree'
+  Plug 'pasky/claude.vim'
 
   " golang debug
   Plug 'preservim/vimux'
   Plug 'sebdah/vim-delve'
-
 
   if filereadable(expand("~/.vimrc.bundles.linux"))
     source ~/.vimrc.bundles.linux
@@ -102,6 +103,9 @@ set pastetoggle=<F2>
 " Set line max leng; if you do gql for example vim will break the line at the
 " white space before the last character at the 80 column.
 setl tw=80
+
+" show markdown characters
+set conceallevel=0
 
 " jsx
 let g:vim_jsx_pretty_highlight_close_tag = 1
@@ -300,6 +304,9 @@ nmap <Tab>  :tabnext<CR>
 
 " Equalize panes
 nmap <leader>= <C-w>=
+
+" undotree
+nmap <leader>u :UndotreeToggle<CR>
 
 " swap panes
 nmap <leader>, <C-w><C-r>
