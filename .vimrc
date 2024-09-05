@@ -213,11 +213,11 @@ let g:LanguageClient_serverCommands = {
 "Fugitive
 nmap <leader>gd :Gdiff<CR>
 nmap <leader>gb :Git blame<CR>
-nmap <leader>gs :Gstatus<CR>
-nmap <leader>ga :Gwrite<CR>
-nmap <leader>gc :Gcommit -v<CR>
-nmap <leader>gp :Gpush<CR>
-nmap <leader>gv :Gvsplit<CR>
+" nmap <leader>gs :Gstatus<CR>
+" nmap <leader>ga :Gwrite<CR>
+" nmap <leader>gc :Gcommit -v<CR>
+" nmap <leader>gp :Gpush<CR>
+" nmap <leader>gv :Gvsplit<CR>
 
 " Git Gutter
 nmap <leader>sh <Plug>(GitGutterStageHunk)
@@ -335,7 +335,7 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 
 " GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
@@ -430,7 +430,6 @@ if filereadable(expand("~/.vimrc.local"))
     source ~/code/dotfiles/.vimrc.local
 end
 
-colorscheme skull
 autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
 
 " GDScript
