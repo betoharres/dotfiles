@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
   Plug 'sheerun/vim-polyglot'
   Plug 'mattn/emmet-vim'
-  " Plug 'dense-analysis/ale'
+  Plug 'dense-analysis/ale'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'matze/vim-move'
   Plug 'jiangmiao/auto-pairs'
@@ -30,13 +30,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'logico/typewriter-vim'
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
-  Plug 'ruby-formatter/rufo-vim'
   Plug 'romgrk/doom-one.vim'
   Plug 'lunacookies/vim-colors-xcode'
   Plug 'joerdav/templ.vim'
   Plug 'habamax/vim-godot'
   Plug 'mbbill/undotree'
-  Plug 'pasky/claude.vim'
 
   " golang debug
   Plug 'preservim/vimux'
@@ -140,35 +138,39 @@ let g:user_emmet_settings = {
   \  },
 \}
 
-" " Ale
-" let g:ale_fix_on_save = 1
-" let g:ale_sign_error = '✘'
-" let g:ale_sign_warning = '⚠'
-" let g:ale_set_highlights = 0
-" let g:ale_sign_column_always = 1
-" let g:ale_virtualtext_cursor = 'disabled'
-" highlight ALEErrorSign ctermbg=NONE ctermfg=red
-" highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-" let g:ale_linters = {
-" \   'javascript': ['eslint'],
-" \   'typescript': ['tsserver'],
-" \   'rust': ['rls'],
-" \   'go': ['gopls'],
-" \   'sql': [''],
-" \}
-" let g:ale_fixers = {
-" \   'html': ['prettier'],
-" \   'javascript': ['prettier'],
-" \   'typescript': ['prettier'],
-" \   'typescriptreact': ['prettier'],
-" \   'css': ['prettier'],
-" \   'rust': ['rustfmt'],
-" \   'ruby': ['rubocop'],
-" \   'php': ['prettier'],
-" \}
+" Disable diagnostic messages from coc.nvim (let ALE handle diagnostics)
+let g:coc_diagnostic_disable = 1
 
-" rufo ruby formatter
-let g:rufo_auto_formatting = 1
+" " ale
+" Disable ALE completion features (leave that to coc.nvim)
+let g:ale_completion_enabled = 0
+let g:ale_lint_on_insert_leave = 1
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_set_highlights = 0
+let g:ale_sign_column_always = 1
+let g:ale_virtualtext_cursor = 'disabled'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver'],
+\   'rust': ['rls'],
+\   'go': ['gopls'],
+\   'ruby': ['rubocop'],
+\   'sql': [''],
+\}
+let g:ale_fixers = {
+\   'html': ['prettier'],
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
+\   'typescriptreact': ['prettier'],
+\   'css': ['prettier'],
+\   'rust': ['rustfmt'],
+\   'ruby': ['rubocop'],
+\   'php': ['prettier'],
+\}
 
 " vim-go
 let g:go_fmt_command = "golines"
@@ -213,11 +215,6 @@ let g:LanguageClient_serverCommands = {
 "Fugitive
 nmap <leader>gd :Gdiff<CR>
 nmap <leader>gb :Git blame<CR>
-" nmap <leader>gs :Gstatus<CR>
-" nmap <leader>ga :Gwrite<CR>
-" nmap <leader>gc :Gcommit -v<CR>
-" nmap <leader>gp :Gpush<CR>
-" nmap <leader>gv :Gvsplit<CR>
 
 " Git Gutter
 nmap <leader>sh <Plug>(GitGutterStageHunk)
@@ -239,7 +236,6 @@ nnoremap <leader><leader> <C-^>
 
 " Go to Normal mode
 inoremap jk <esc>
-inoremap jj <esc>
 
 " Too old for this shit
 noremap <leader>w :w<CR>
@@ -251,14 +247,7 @@ nmap <leader>p "+P
 " Life saver
 nnore ; :
 vnore ; :
-" no L $
-" vno L $h
-" no H _
 nnoremap V vV
-
-" Centering after searching word
-nmap n nzz
-nmap N Nzz
 
 " Visual all content in the file
 nmap gv ggVG$
@@ -294,8 +283,8 @@ nmap <leader>c :Commands<cr>
 " Move through panes
 nnoremap <down> <C-w>+
 nnoremap <up> <C-w>-
-nnoremap <right> <C-w><
-nnoremap <left> <C-w>>
+nnoremap <left> <C-w><
+nnoremap <right> <C-w>>
 
 " Tab navigation
 nmap <leader><Tab> :tabnew<CR>

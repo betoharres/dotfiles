@@ -15,6 +15,9 @@ export PATH=$PATH:$HOME/.local/bin
 # Turso
 export PATH=$PATH:$HOME/.turso
 
+# android avd 2024
+export ANDROID_AVD_HOME=$HOME/.config/.android/avd/
+
 export npm_config_prefix=~/.node_modules
 export TERM=screen-256color
 export GOPATH=~/go
