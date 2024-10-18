@@ -6,3 +6,6 @@
 
 colorscheme everforest
 autocmd VimEnter * colorscheme everforest
+
+" OSX
+let g:godot_executable = '/Applications/Godot.app'
