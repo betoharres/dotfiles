@@ -4,6 +4,7 @@ alias gc='git commit -v'
 alias iovdebug='docker-compose up -d && docker attach $(docker-compose ps -q app)'
 alias rn-android-offline="adb reverse tcp:8081 tcp:8081"
 alias folder='du -sch * | sort -hr'
+alias ng='nvim --listen /tmp/godot.pipe'
 
 [[ -f ~/.aliases.linux ]] && source ~/.aliases.linux
 [[ -f ~/.aliases.osx ]] && source ~/.aliases.osx
