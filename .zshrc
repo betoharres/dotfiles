@@ -2,7 +2,7 @@ PROMPT="%D{%T} %~ $ "
 
 source ~/.aliases
 
-export EDITOR=vim
+export EDITOR=nvim
 export SHELL=zsh
 export LANG=en_US.UTF-8
 
@@ -26,13 +26,13 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 # personal
 function c() { cd ~/code/$@; }
 function h() { cd ~/$@; }
-function v() { vim $@; }
+function v() { nvim $@; }
 function f() { grep -r $@ .;}
 function gamend() {git commit --amend -m "$*";}
 function ga() {git add "*$@*";}
 function gl() {git log --pretty=oneline;}
 function gcp() {git add -A && git commit -m "$*" && git push;}
-function opendiff () { vim -p $(git status -s | awk '{print $2}') }
+function opendiff () { nvim -p $(git status -s | awk '{print $2}') }
 function youtube-mp3() { youtube-dl --extract-audio --audio-format mp3 $@; }
 function showPATH() { echo $PATH | tr ":" "\n" }
 
